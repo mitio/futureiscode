@@ -21,6 +21,24 @@ h2#intro {
   margin-top: 0.8em;
 }
 
+blockquote {
+  font-style: italic;
+  position: relative;
+  opacity: 0.9;
+}
+
+blockquote:before {
+  display: block;
+  content: "“";
+  position: absolute;
+  top: 0;
+  left: -60px;
+  font-size: 8em;
+  opacity: 0.2;
+  line-height: 1em;
+  width: 1em;
+}
+
 .hero {
   padding: 2%;
   text-align: center;
