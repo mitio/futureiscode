@@ -85,6 +85,7 @@ a:hover {
 .content-wrapper {
   background-color: #F2F3F4;
   padding: 2%;
+  padding-bottom: 4%;
   color: #1d2a32;
 }
 
@@ -126,12 +127,12 @@ footer h4 {
 
 .hero .btn {
   width: 5em;
+  margin: 0 0.5em;
 }
 
 .btn {
   display: inline-block;
   padding: 0.6em 1.4em;
-  margin: 0 0.5em;
   text-decoration: none;
   background-color: #354d5f;
   color: #fff;
