@@ -13,6 +13,14 @@ footer {
   margin: 0 auto;
 }
 
+h2 {
+  margin: 2.5em 0 1.5em 0;
+}
+
+h2#intro {
+  margin-top: 0.8em;
+}
+
 .hero {
   padding: 2%;
   text-align: center;
@@ -84,7 +92,11 @@ article {
 footer {
   font-size: 1.4em;
   line-height: 1.5em;
-  text-align: center;
+  text-align: left;
+}
+
+footer h4 {
+  color: #a1b0b9;
 }
 
 .hero .join-as {

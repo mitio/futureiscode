@@ -41,11 +41,14 @@
 # end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def scroll_to(text, section, options = {})
+    options[:class] ||= ''
+    options[:class] << ' smooth-scroll'
+
+    link_to text, "##{section}", options
+  end
+end
 
 set :css_dir, 'css'
 
