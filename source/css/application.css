@@ -87,6 +87,31 @@ footer {
   text-align: center;
 }
 
+.hero .join-as {
+  margin-top: 2em;
+  border-top: 1px solid #D0D8DF;
+  padding-top: 0.8em;
+  color: #91A4B3;
+}
+
+.hero .btn {
+  width: 5em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.4em;
+  margin: 0 0.5em;
+  text-decoration: none;
+  background-color: #354d5f;
+  color: #fff;
+  border-radius: 3px;
+}
+.btn:hover {
+  background-color: #44647c;
+  color: #fff;
+}
+
 @media screen and (max-width: 600px) {
   .hero h1 {
     font-size: 4em;
