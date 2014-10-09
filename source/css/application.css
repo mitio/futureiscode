@@ -15,6 +15,9 @@ footer {
 
 h2 {
   margin: 2.5em 0 1.5em 0;
+  text-shadow: 0 1px 0 white;
+  border-bottom: 1px solid #D6D3D3;
+  padding-bottom: 0.5em;
 }
 
 h2#intro {
