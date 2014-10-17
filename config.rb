@@ -38,6 +38,8 @@
 # Reload the browser automatically whenever files change
 # activate :livereload
 
+activate :directory_indexes
+
 Time.zone = 'Sofia'
 
 activate :blog do |blog|
@@ -64,9 +66,7 @@ helpers do
 end
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
 
 # Build-specific configuration
