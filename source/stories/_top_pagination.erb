@@ -1,0 +1,7 @@
+<% if paginate && num_pages > 1 %>
+  <p>Страница <%= page_number %> от <%= num_pages %></p>
+
+  <% if prev_page %>
+    <p><%= link_to 'Предишна страница', prev_page %></p>
+  <% end %>
+<% end %>

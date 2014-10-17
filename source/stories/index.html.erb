@@ -2,20 +2,10 @@
 pageable: true
 per_page: 10
 ---
-<% if paginate && num_pages > 1 %>
-  <p>Страница <%= page_number %> от <%= num_pages %></p>
-
-  <% if prev_page %>
-    <p><%= link_to 'Предишна страница', prev_page %></p>
-  <% end %>
-<% end %>
+<%= partial 'stories/_top_pagination' %>
 
 <% page_articles.each do |article| %>
   <%= partial 'stories/_article', locals: {article: article} %>
 <% end %>
 
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Следваща страница', next_page %></p>
-  <% end %>
-<% end %>
+<%= partial 'stories/_bottom_pagination' %>
