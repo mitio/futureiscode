@@ -7,7 +7,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <!-- Use title if it's in the page YAML frontmatter -->
-        <title><%= current_page.data.title || "HTML5 Boilerplate" %></title>
+        <title>
+            <% if current_article %>
+                <%= current_article.title %> – Бъдещето е код
+            <% else %>
+                <%= current_page.data.title || 'Бъдещето е код' %>
+            <% end %>
+        </title>
+        <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: 'Atom Feed' %>
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
