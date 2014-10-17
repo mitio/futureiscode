@@ -8,6 +8,7 @@ body, html {
 
 header,
 article,
+#blog,
 footer {
   max-width: 800px;
   margin: 0 auto;
@@ -146,8 +147,41 @@ footer h4 {
   color: #fff;
 }
 
+/* Blog styles */
+#blog {
+  overflow: hidden;
+}
+
+#blog #main {
+  float: left;
+  width: 70%;
+}
+
+#blog aside {
+  float: right;
+  width: 25%;
+}
+#blog aside h2:first-child {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 600px) {
   .hero h1 {
     font-size: 4em;
+  }
+
+  #blog {
+    padding: 2%;
+  }
+
+  #blog #main {
+    float: none;
+    width: auto;
+  }
+
+  #blog aside {
+    float: none;
+    width: auto;
+    margin-top: 2em;
   }
 }

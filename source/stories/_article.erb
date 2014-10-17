@@ -1,0 +1,9 @@
+<article>
+  <h2>
+    <%= link_to article.title, article %>
+    <small>Преди <abbr title="<%= article.date %>"><%= time_ago_in_words article.date %></abbr></small>
+  </h2>
+  <div class="body">
+    <%= article.body %>
+  </div>
+</article>

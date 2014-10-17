@@ -3,22 +3,19 @@ pageable: true
 per_page: 10
 ---
 <% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+  <p>Страница <%= page_number %> от <%= num_pages %></p>
 
   <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
+    <p><%= link_to 'Предишна страница', prev_page %></p>
   <% end %>
 <% end %>
 
-<% page_articles.each_with_index do |article, i| %>
-  <h2><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></h2>
-  <!-- use article.summary(250) if you have Nokogiri available to show just
-       the first 250 characters -->
-  <%= article.body %>
+<% page_articles.each do |article| %>
+  <%= partial 'stories/_article', locals: {article: article} %>
 <% end %>
 
 <% if paginate %>
   <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
+    <p><%= link_to 'Следваща страница', next_page %></p>
   <% end %>
 <% end %>
