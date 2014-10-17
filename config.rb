@@ -44,8 +44,8 @@ Time.zone = 'Sofia'
 
 activate :blog do |blog|
   blog.prefix = 'stories'
-  blog.tag_template = 'tag.html'
-  blog.calendar_template = 'calendar.html'
+  blog.tag_template = 'stories/tag.html'
+  blog.calendar_template = 'stories/calendar.html'
 
   # Enable pagination
   blog.paginate = true
@@ -53,7 +53,7 @@ activate :blog do |blog|
   blog.page_link = 'page/{num}'
 end
 
-page '/feed.xml', layout: false
+page '/stories/feed.xml', layout: false
 
 # Methods defined in the helpers block are available in templates
 helpers do
