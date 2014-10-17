@@ -40,6 +40,10 @@
 #   activate :livereload
 # end
 
+activate :blog do |blog|
+  blog.prefix = 'stories'
+end
+
 # Methods defined in the helpers block are available in templates
 helpers do
   def scroll_to(text, section, options = {})
