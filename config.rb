@@ -38,9 +38,20 @@
 # Reload the browser automatically whenever files change
 # activate :livereload
 
+Time.zone = 'Sofia'
+
 activate :blog do |blog|
   blog.prefix = 'stories'
+  blog.tag_template = 'tag.html'
+  blog.calendar_template = 'calendar.html'
+
+  # Enable pagination
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = 'page/{num}'
 end
+
+page '/feed.xml', layout: false
 
 # Methods defined in the helpers block are available in templates
 helpers do
