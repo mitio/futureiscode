@@ -38,8 +38,6 @@
 # Reload the browser automatically whenever files change
 # activate :livereload
 
-activate :directory_indexes
-
 Time.zone = 'Sofia'
 
 activate :blog do |blog|
@@ -52,6 +50,8 @@ activate :blog do |blog|
   blog.per_page = 10
   blog.page_link = 'page/{num}'
 end
+
+activate :directory_indexes
 
 page '/stories/feed.xml', layout: false
 
