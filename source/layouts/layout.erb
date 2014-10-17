@@ -19,6 +19,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
+        <% if current_article %>
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="<%= h current_article.title %> – Бъдещето е код" />
+            <% if current_article.data.image %>
+                <meta property="og:image" content="<%= h current_article.data.image %>" />
+            <% end %>
+            <% if current_article.data.description %>
+                <meta property="og:description" content="<%= h current_article.data.description %>" />
+            <% end %>
+        <% end %>
+
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
