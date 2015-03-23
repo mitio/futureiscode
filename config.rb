@@ -54,6 +54,7 @@ end
 activate :directory_indexes
 
 page '/stories/feed.xml', layout: false
+page '/stories/*/*/*/*', layout: :story
 page '/stories/*', layout: :stories
 
 # Methods defined in the helpers block are available in templates

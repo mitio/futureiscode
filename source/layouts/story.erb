@@ -1,0 +1,19 @@
+<% wrap_layout :layout do %>
+  <div id="blog">
+    <div id="main" role="main">
+      <article>
+        <h2>
+          <%= current_article.title %>
+          <small>Преди <abbr title="<%= current_article.date %>"><%= time_ago_in_words current_article.date %></abbr></small>
+        </h2>
+        <div class="body">
+          <%= yield %>
+        </div>
+      </article>
+    </div>
+
+    <aside>
+      <%= partial 'stories/_sidebar' %>
+    </aside>
+  </div>
+<% end %>
