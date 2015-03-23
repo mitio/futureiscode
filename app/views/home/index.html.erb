@@ -1,16 +1,12 @@
----
-title: Бъдещето е код - Europe Code Week
----
-
 <div class="hero">
   <header>
-    <img src="img/codeweekeu-icon.png" alt="Code Week" class="icon">
+    <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'icon' %>
     <h1>Бъдещето е код</h1>
     <p>
       Турне на работещи в IT-сферата из училища в страната<br>
       Инициативата е част от
-      <% link_to 'http://codeweek.eu' do %>
-        <img src="img/codeweekeu-icon.png" alt="Code Week" class="small-icon">
+      <%= link_to 'http://codeweek.eu' do %>
+        <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'small-icon' %>
         Europe Code Week
       <% end %>
     </p>
