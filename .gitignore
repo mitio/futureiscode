@@ -21,3 +21,6 @@
 
 # Production config files
 /config/database.yml
+
+# A local notes file
+TODO.txt
