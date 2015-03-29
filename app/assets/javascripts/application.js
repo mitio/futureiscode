@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_self
 
 $(function () {
   $(document).on('click', '.smooth-scroll', function (e) {
