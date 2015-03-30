@@ -80,8 +80,11 @@ Rails.application.configure do
 
   # Configure Paperclip uploads to use Amazon S3
   config.paperclip_defaults = {
+    path: '/:class/:attachment/:id_partition/:style/:param.:extension',
     storage: :s3,
     s3_host_name: ENV['S3_HOSTNAME'],
+    s3_host_alias: ENV['S3_HOST_ALIAS'],
+    url: ':s3_alias_url',
     s3_credentials: {
       bucket: ENV['S3_BUCKET'],
     }
