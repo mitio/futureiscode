@@ -27,3 +27,6 @@ TODO.txt
 
 # File uploads
 /public/system/*
+
+# Configuration variables for development and test
+.env

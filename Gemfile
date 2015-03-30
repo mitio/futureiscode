@@ -18,6 +18,7 @@ gem 'rollbar'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'paperclip'
+gem 'aws-sdk', '~> 1.5'
 
 group :development do
   gem 'capistrano-rails'
@@ -27,4 +28,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'dotenv-rails'
 end
