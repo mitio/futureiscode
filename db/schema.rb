@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325181720) do
+ActiveRecord::Schema.define(version: 20150330124004) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -45,5 +45,21 @@ ActiveRecord::Schema.define(version: 20150325181720) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.string   "slug",                              null: false
+    t.string   "url"
+    t.boolean  "pledged_support",   default: false, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+  add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true, using: :btree
 
 end

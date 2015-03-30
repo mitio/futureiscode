@@ -17,6 +17,7 @@ gem 'rails-i18n'
 gem 'rollbar'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'paperclip'
 
 group :development do
   gem 'capistrano-rails'

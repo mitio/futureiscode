@@ -24,3 +24,6 @@
 
 # A local notes file
 TODO.txt
+
+# File uploads
+/public/system/*
