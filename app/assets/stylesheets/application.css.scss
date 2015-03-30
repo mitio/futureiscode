@@ -15,6 +15,8 @@
  *= require_self
  */
 
+$content-width: 800px;
+
 body, html {
   padding: 0;
   margin: 0;
@@ -25,8 +27,9 @@ body, html {
 
 header,
 article,
-footer {
-  max-width: 800px;
+footer,
+.content {
+  max-width: $content-width;
   margin: 0 auto;
 }
 
@@ -161,6 +164,30 @@ footer h4 {
 .btn:hover {
   background-color: #44647c;
   color: #fff;
+}
+
+.pledged-support {
+  background-color: #fff;
+  text-align: center;
+  padding: 1em;
+
+  .joined {
+    margin: 1em;
+    color: #A1AAB4;
+    font-size: 2em;
+  }
+  ul.companies {
+    list-style: none;
+    padding: 0;
+    margin: 1em;
+    li {
+      display: inline-block;
+      padding: 1em;
+      img {
+        max-height: 50px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {

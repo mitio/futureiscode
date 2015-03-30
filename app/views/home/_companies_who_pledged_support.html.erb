@@ -1,0 +1,18 @@
+<div class="pledged-support">
+  <div class="content">
+    <p class="joined">В инициативата участват</p>
+    <ul class="companies">
+      <% @companies.each do |company| %>
+        <li>
+          <% if company.url.present? %>
+            <%= link_to company.url, target: '_blank', rel: 'nofollow', class: 'company' do %>
+              <%= image_tag company.logo.url(:small), alt: company.name, title: company.name %>
+            <% end %>
+          <% else %>
+            <%= image_tag company.logo.url(:small), alt: company.name, title: company.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
