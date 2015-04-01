@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+DB_HOST=${DB_HOST:-localhost}
+DB_USER=${DB_USER:-root}
+DB_NAME=${DB_NAME:-futureiscode_development}
+
+echo "Creating a backup..."
+BACKUP_ID=`heroku pg:backups capture | grep -- '---backup--->' | awk '{ print $3 }'`
+
+echo "Getting the URL to the backup $BACKUP_ID..."
+BACKUP_URL=`heroku pg:backups public-url $BACKUP_ID | grep -v 'The following URL will expire' | ruby -e 'puts gets.strip[1..-2]'`
+
+echo "Restoring backup $BACKUP_ID..."
+curl $BACKUP_URL | pg_restore "$@" --clean --no-acl --no-owner -h $DB_HOST -U $DB_USER -d $DB_NAME || true
+
+echo "Restarting the app..."
+touch `dirname $0`/../tmp/restart.txt
