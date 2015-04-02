@@ -160,6 +160,12 @@ footer h4 {
   background-color: #354d5f;
   color: #fff;
   border-radius: 3px;
+
+  &.light {
+    border: 1px solid #C5CCD3;
+    color: #4F6476;
+    background-color: transparent;
+  }
 }
 .btn:hover {
   background-color: #44647c;
@@ -187,6 +193,10 @@ footer h4 {
         max-height: 50px;
       }
     }
+  }
+  .join-us {
+    font-size: 2em;
+    margin: 2em;
   }
 }
 
