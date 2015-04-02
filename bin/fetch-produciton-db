@@ -10,7 +10,7 @@ echo "Creating a backup..."
 BACKUP_ID=`heroku pg:backups capture | grep -- '---backup--->' | awk '{ print $3 }'`
 
 echo "Getting the URL to the backup $BACKUP_ID..."
-BACKUP_URL=`heroku pg:backups public-url $BACKUP_ID | grep -v 'The following URL will expire' | ruby -e 'puts gets.strip[1..-2]'`
+BACKUP_URL=`heroku pg:backups public-url $BACKUP_ID | grep -v 'The following URL will expire' | xargs echo`
 
 echo "Restoring backup $BACKUP_ID..."
 curl $BACKUP_URL | pg_restore "$@" --clean --no-acl --no-owner -h $DB_HOST -U $DB_USER -d $DB_NAME || true
