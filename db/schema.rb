@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330124004) do
+ActiveRecord::Schema.define(version: 20150402181741) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -61,5 +61,37 @@ ActiveRecord::Schema.define(version: 20150330124004) do
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
   add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true, using: :btree
+
+  create_table "municipalities", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.integer  "state_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "municipalities", ["code"], name: "index_municipalities_on_code", unique: true, using: :btree
+  add_index "municipalities", ["state_id"], name: "index_municipalities_on_state_id", using: :btree
+
+  create_table "states", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "states", ["code"], name: "index_states_on_code", unique: true, using: :btree
+
+  create_table "towns", force: :cascade do |t|
+    t.string   "kind",            null: false
+    t.string   "code",            null: false
+    t.string   "name",            null: false
+    t.integer  "municipality_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "towns", ["code"], name: "index_towns_on_code", unique: true, using: :btree
+  add_index "towns", ["municipality_id"], name: "index_towns_on_municipality_id", using: :btree
 
 end
