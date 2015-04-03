@@ -16,6 +16,7 @@ bg:
     password_confirmation: Потвърждение на паролата
     created_at: Дата на създаване
     updated_at: Дата на обновяване
+    remember_me: 'Запомни ме'
 
   activerecord:
     models:
