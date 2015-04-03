@@ -50,6 +50,9 @@ h2 {
   text-shadow: 0 1px 0 white;
   border-bottom: 1px solid #D6D3D3;
   padding-bottom: 0.5em;
+  &.light {
+    font-weight: 200;
+  }
 }
 
 blockquote {
