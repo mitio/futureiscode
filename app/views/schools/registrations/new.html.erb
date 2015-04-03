@@ -10,32 +10,28 @@
 
 <p>При въпроси или проблеми, може да се <%= link_to 'свържете с екипа ни', contacts_path %>.</p>
 
-<h2 class="light">Данни за вход</h2>
+<%= simple_form_for resource, url: registration_path(resource_name) do |f| %>
+  <%= f.error_notification %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="form-inputs">
+    <h2 class="light">Информация за учебното заведение</h2>
+    <%= f.input :name %>
+    <%= f.association :town, collection: Town.order('name ASC').includes(municipality: :state), label_method: :full_name %>
+    <%= f.input :address %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <h2 class="light">Лице за контакт</h2>
+    <%= f.input :contact_name %>
+    <%= f.input :phone %>
+
+    <h2 class="light">Данни за вход в системата</h2>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
 
-<%= render "schools/shared/links" %>
+<%= render 'schools/shared/links' %>
