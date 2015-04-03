@@ -3,6 +3,12 @@ bg:
     menu:
       lists: 'Номенклатури'
 
+  helpers:
+    submit:
+      school:
+        create: Регистрирай учебното заведение
+        update: Обнови профила
+
   attributes:
     email: Имейл
     password: Парола
@@ -23,6 +29,6 @@ bg:
         name: Наименование на учебното заведение
         state_id: Област
         municipality_id: Община
-        town_id: Населено място
+        town: Населено място
         address: Адрес
         contact_name: Лице за контакт

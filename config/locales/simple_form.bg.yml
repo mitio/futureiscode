@@ -1,0 +1,9 @@
+bg:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Не'
+    required:
+      text: 'задължително'
+      mark: '*'
+    error_notification:
+      default_message: 'Има проблем с въведените данни. Прегледайте грешките по-долу.'
