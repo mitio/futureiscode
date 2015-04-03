@@ -1,5 +1,5 @@
 <div class="hero">
-  <header>
+  <div class="content">
     <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'icon' %>
     <h1>Бъдещето е код</h1>
     <p class="about">
@@ -12,7 +12,7 @@
       <%= scroll_to 'Училище', 'school', class: 'btn' %>
       <%= scroll_to 'Лектор', 'coach', class: 'btn' %>
     </p>
-  </header>
+  </div>
 </div>
 
 <%= render 'companies_who_pledged_support' if @companies.any? %>
