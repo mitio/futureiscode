@@ -14,16 +14,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <h2 class="light">Информация за учебното заведение</h2>
+    <h2>Информация за учебното заведение</h2>
     <%= f.input :name %>
     <%= f.association :town, collection: Town.order('name ASC').includes(municipality: :state), label_method: :full_name %>
     <%= f.input :address %>
 
-    <h2 class="light">Лице за контакт</h2>
+    <h2>Лице за контакт</h2>
     <%= f.input :contact_name %>
     <%= f.input :phone %>
 
-    <h2 class="light">Данни за вход в системата</h2>
+    <h2>Данни за вход в системата</h2>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
