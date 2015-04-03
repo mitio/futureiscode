@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<p>Здравейте, <%= @resource.contact_name %>,</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>За да потвърдите профила на вашето учебно заведение, отвореде линка по-долу:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Потвърди профила →', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Поздрави,<br />Екипът на Бъдещето е код</p>

@@ -1,16 +1,16 @@
-<h2>Resend confirmation instructions</h2>
+<h2>Повторно изпращане на имейл за потвърждение на регистрация</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :confirmation_token %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true, hint: t('hints.confirmation_email.signup_email_html', contacts_path: contacts_path) %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
+    <%= f.button :submit, 'Изпрати' %>
   </div>
 <% end %>
 
-<%= render "schools/shared/links" %>
+<%= render 'schools/shared/links' %>

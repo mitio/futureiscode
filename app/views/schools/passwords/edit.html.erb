@@ -1,4 +1,4 @@
-<h2>Change your password</h2>
+<h2>Промяна на парола</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -7,13 +7,13 @@
   <%= f.full_error :reset_password_token %>
 
   <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+    <%= f.input :password, label: 'Нова парола', required: true, autofocus: true %>
+    <%= f.input :password_confirmation, label: 'Повторете новата парола', required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.button :submit, 'Промени паролата' %>
   </div>
 <% end %>
 
-<%= render "schools/shared/links" %>
+<%= render 'schools/shared/links' %>
