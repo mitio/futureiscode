@@ -22,6 +22,7 @@ gem 'aws-sdk', '~> 1.5'
 gem 'email_validator'
 gem 'font-awesome-sass'
 gem 'devise-i18n'
+gem 'simple_form'
 
 group :development do
   gem 'capistrano-rails'
