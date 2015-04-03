@@ -59,6 +59,51 @@ blockquote:before {
   width: 1em;
 }
 
+header {
+  background-color: #DEE4E7;
+  font-weight: normal;
+  font-family: helvetica, verdana, arial, sans-serif;
+  color: #576b78;
+  overflow: hidden;
+
+  .home-link {
+    display: block;
+    float: left;
+    font-size: 2.5em;
+    line-height: 1.1em;
+    padding: 0.3em 0;
+    color: #527591;
+
+    &:hover {
+      color: #48677F;
+    }
+
+    .icon {
+      width: 2em;
+      height: 2em;
+      opacity: 0.8;
+      vertical-align: middle;
+    }
+  }
+
+  .period {
+    float: left;
+    margin-left: 1em;
+    font-size: 1.5em;
+    margin-top: 1.6em;
+    color: #899CA8;
+  }
+
+  .join {
+    float: right;
+    font-size: 1.2em;
+    margin-top: 1.3em;
+    a {
+      margin-left: 0.7em;
+    }
+  }
+}
+
 .hero {
   padding: 2%;
   text-align: center;

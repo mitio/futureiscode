@@ -1,8 +1,15 @@
-<div class="content-wrapper">
-  <header>
-    <%= link_to root_path do %>
+<header>
+  <div class="content">
+    <%= link_to root_path, class: 'home-link' do %>
       <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'icon' %>
       Бъдещето е код
     <% end %>
-  </header>
-</div>
+
+    <div class="period"><%= ENV['CURRENT_PERIOD'] %></div>
+
+    <div class="join">
+      <%= link_to 'Лектор', root_path(anchor: 'coach'), class: 'btn' %>
+      <%= link_to 'Училище', new_school_registration_path, class: 'btn' %>
+    </div>
+  </div>
+</header>
