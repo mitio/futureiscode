@@ -25,6 +25,7 @@ gem 'devise-i18n'
 gem 'simple_form'
 
 group :development do
+  gem 'letter_opener'
 end
 
 group :development, :test do
