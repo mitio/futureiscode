@@ -63,41 +63,52 @@ blockquote:before {
   padding: 2%;
   text-align: center;
   background-color: #DEE4E7;
-}
+  .icon {
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
 
-.hero .icon {
-  width: 100px;
-  max-width: 100%;
-  opacity: 0.8;
-}
+  h1 {
+    font-size: 7em;
+    font-weight: normal;
+    font-family: helvetica, verdana, arial, sans-serif;
+    color: #527591;
+    margin: 0.1em 0 0.2em 0;
+  }
 
-.hero h1 {
-  font-size: 7em;
-  font-weight: normal;
-  font-family: helvetica, verdana, arial, sans-serif;
-  color: #527591;
-  margin: 0.1em 0 0.2em 0;
-}
-
-.hero p {
-  font-size: 2.3em;
-  color: #576b78;
-  &.about {
-    line-height: 1.6em;
-    font-weight: 200;
-    a {
-      color: #576b78;
+  p {
+    font-size: 2.3em;
+    color: #576b78;
+    &.about {
+      line-height: 1.6em;
+      font-weight: 200;
+      a {
+        color: #576b78;
+      }
     }
   }
-}
 
-.hero a .small-icon {
-  width: 1.5em;
-  opacity: 0.8;
-}
+  .join-as {
+    margin-top: 2em;
+    border-top: 1px solid #D0D8DF;
+    padding-top: 0.8em;
+    color: #91A4B3;
+  }
 
-.hero a:hover .small-icon {
-  opacity: 1;
+  .btn {
+    width: 5em;
+    margin: 0 0.5em;
+  }
+
+  a .small-icon {
+    width: 1.5em;
+    opacity: 0.8;
+  }
+
+  a:hover .small-icon {
+    opacity: 1;
+  }
 }
 
 a {
@@ -119,18 +130,6 @@ a:hover {
 article {
   font-size: 1.6em;
   line-height: 1.5em;
-}
-
-.hero .join-as {
-  margin-top: 2em;
-  border-top: 1px solid #D0D8DF;
-  padding-top: 0.8em;
-  color: #91A4B3;
-}
-
-.hero .btn {
-  width: 5em;
-  margin: 0 0.5em;
 }
 
 .btn {
