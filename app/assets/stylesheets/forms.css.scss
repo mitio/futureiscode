@@ -9,6 +9,15 @@ form {
   label {
     display: block;
   }
+  .hint {
+    display: block;
+    color: #777;
+    margin: 0.3em 0;
+  }
+
+  .error_notification {
+    color: red;
+  }
   .error {
     display: block;
     color: red;
