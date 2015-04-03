@@ -1,0 +1,21 @@
+.alerts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 100;
+  font-size: 1.6em;
+  p {
+    padding: 1em;
+    margin: 0;
+  }
+  .notice {
+    background: #C0E7C8;
+    color: #1C6238;
+  }
+  .alert {
+    background: #F2C9C9;
+    color: #BE0A17;
+  }
+}
