@@ -304,6 +304,13 @@ footer {
   }
 }
 
+.profile-links {
+  margin: 1.8em 0;
+  p {
+    margin: 0.2em 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .hero h1 {
     font-size: 4em;
