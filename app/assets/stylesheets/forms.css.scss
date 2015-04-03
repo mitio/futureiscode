@@ -1,0 +1,26 @@
+form {
+  .input {
+    margin: 1em 0;
+    input {
+      width: 90%;
+      padding: 0.4em 0.5em;
+    }
+  }
+  label {
+    display: block;
+  }
+  .error {
+    display: block;
+    color: red;
+  }
+  .field_with_errors {
+    input {
+      border-color: red;
+      border-style: solid;
+    }
+  }
+
+  .form-actions {
+    margin: 2em 0 1em 0;
+  }
+}

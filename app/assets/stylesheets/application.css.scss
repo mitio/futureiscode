@@ -12,6 +12,7 @@
  *
  *= require boilerplate
  *= require normalize
+ *= require forms
  *= require_self
  */
 
@@ -51,6 +52,7 @@ h2 {
   border-bottom: 1px solid #D6D3D3;
   padding-bottom: 0.5em;
   &.light {
+    margin: 1.8em 0 0.7em 0;
     font-weight: 200;
   }
 }
@@ -209,6 +211,7 @@ article {
   background-color: #354d5f;
   color: #fff;
   border-radius: 3px;
+  border: none;
 
   &.light {
     border: 1px solid #C5CCD3;
