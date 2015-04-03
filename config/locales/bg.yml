@@ -1,0 +1,28 @@
+bg:
+  admin:
+    menu:
+      lists: 'Номенклатури'
+
+  attributes:
+    email: Имейл
+    password: Парола
+    password_confirmation: Потвърждение на паролата
+
+  activerecord:
+    models:
+      school: Училище
+      state: Област
+      municipality: Община
+      town: Населено място
+      admin_user: 'Администратор'
+      comment: 'Коментар'
+      company: 'Фирма'
+
+    attributes:
+      school:
+        name: Наименование на учебното заведение
+        state_id: Област
+        municipality_id: Община
+        town_id: Населено място
+        address: Адрес
+        contact_name: Лице за контакт

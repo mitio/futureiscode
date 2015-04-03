@@ -1,3 +1,3 @@
 ActiveAdmin.register Town do
-  menu parent: 'Lists'
+  menu parent: I18n.t('admin.menu.lists')
 end

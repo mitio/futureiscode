@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 1.5'
 gem 'email_validator'
 gem 'font-awesome-sass'
+gem 'devise-i18n'
 
 group :development do
   gem 'capistrano-rails'
