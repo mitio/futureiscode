@@ -25,7 +25,6 @@ gem 'devise-i18n'
 gem 'simple_form'
 
 group :development do
-  gem 'capistrano-rails'
 end
 
 group :development, :test do
