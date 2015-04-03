@@ -7,13 +7,17 @@
   <%= render 'layouts/head' %>
 </head>
 <body>
-  <%= render 'layouts/alerts' %>
-  <%= render 'layouts/header' %>
+  <div class="page">
+    <%= render 'layouts/alerts' %>
+    <%= render 'layouts/header' %>
 
-  <div class="content-wrapper">
-    <div class="content">
-      <%= yield %>
+    <div class="content-wrapper">
+      <article>
+        <%= yield %>
+      </article>
     </div>
+
+    <div class="footer-placeholder"></div>
   </div>
 
   <%= render 'layouts/footer' %>
