@@ -118,7 +118,10 @@ header {
 .hero {
   padding: 2%;
   text-align: center;
-  background-color: #DEE4E7;
+  background: #DEE4E7 image-url('top-background.jpg') 50% 50% no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   .icon {
     width: 100px;
     height: 100px;
@@ -129,27 +132,29 @@ header {
     font-size: 7em;
     font-weight: normal;
     font-family: helvetica, verdana, arial, sans-serif;
-    color: #527591;
     margin: 0.1em 0 0.2em 0;
+    color: #38444D;
+    text-shadow: 0 1px 0px #B0AEAE;
   }
 
   p {
     font-size: 2.3em;
-    color: #576b78;
+    color: #2B353C;
     &.about {
       line-height: 1.6em;
       font-weight: 200;
       a {
-        color: #576b78;
+        color: #070808;
       }
     }
   }
 
   .join-as {
     margin-top: 2em;
-    border-top: 1px solid #D0D8DF;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 0.8em;
-    color: #91A4B3;
+    color: #E3E4E5;
+    font-weight: 200;
   }
 
   .btn {
