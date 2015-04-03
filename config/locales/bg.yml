@@ -34,12 +34,11 @@ bg:
         contact_name: Име и фамилия на лице за контакт
         phone: Телефон за контакт
 
-  bg:
-    simple_form:
-      "yes": 'Да'
-      "no": 'Не'
-      required:
-        text: 'задължително'
-        mark: '*'
-      error_notification:
-        default_message: 'Има проблем с въведените данни. Прегледайте грешките по-долу.'
+  simple_form:
+    "yes": 'Да'
+    "no": 'Не'
+    required:
+      text: 'задължително'
+      mark: '*'
+    error_notification:
+      default_message: 'Има проблем с въведените данни. Прегледайте грешките по-долу.'
