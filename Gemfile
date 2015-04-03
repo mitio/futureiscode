@@ -19,6 +19,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.5'
+gem 'email_validator'
 
 group :development do
   gem 'capistrano-rails'

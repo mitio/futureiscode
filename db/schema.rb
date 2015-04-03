@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402181741) do
+ActiveRecord::Schema.define(version: 20150402190047) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -72,6 +72,38 @@ ActiveRecord::Schema.define(version: 20150402181741) do
 
   add_index "municipalities", ["code"], name: "index_municipalities_on_code", unique: true, using: :btree
   add_index "municipalities", ["state_id"], name: "index_municipalities_on_state_id", using: :btree
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name",                                null: false
+    t.integer  "town_id",                             null: false
+    t.string   "address",                             null: false
+    t.string   "contact_name",                        null: false
+    t.string   "email",                               null: false
+    t.string   "encrypted_password",                  null: false
+    t.string   "phone"
+    t.boolean  "confirmed_participation"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",           default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.text     "dates"
+    t.text     "details"
+    t.text     "notes"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "schools", ["confirmed_participation", "name"], name: "index_schools_on_confirmed_participation_and_name", using: :btree
+  add_index "schools", ["email"], name: "index_schools_on_email", unique: true, using: :btree
+  add_index "schools", ["reset_password_token"], name: "index_schools_on_reset_password_token", unique: true, using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "code",       null: false
