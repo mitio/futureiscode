@@ -20,6 +20,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.5'
 gem 'email_validator'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'capistrano-rails'

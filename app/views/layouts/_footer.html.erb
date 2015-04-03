@@ -1,0 +1,53 @@
+<footer>
+  <div class="social-links">
+    <div class="content">
+      <ul>
+        <li>
+          <%= link_to 'https://www.facebook.com/futureiscode' do %>
+            <i class="fa fa-facebook"></i>
+            futureiscode
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'https://twitter.com/futureiscode' do %>
+            <i class="fa fa-twitter"></i>
+            @futureiscode
+          <% end %>
+        </li>
+        <li>
+          <%= mail_to ENV['CONTACT_EMAIL_ADDRESS'] do %>
+            <i class="fa fa-envelope-o"></i>
+            <%= ENV['CONTACT_EMAIL_ADDRESS'] %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'TODO' do %>
+            <i class="fa fa-phone"></i>
+            контакти
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-details">
+    <div class="content">
+      <h4>Относно "Бъдещето е код"</h4>
+
+      <p>
+        Инициатива, организирана от <%= link_to 'Дигиталната национална коалиция', 'http://digitalalliance.bg' %>
+        и <%= link_to 'посланика на Europe Code Week за България', 'http://ddimitrov.name' %>,
+        със съдействието на <%= link_to 'Министерството на образованието', 'http://mon.bg' %>,
+        <%= link_to 'Регионалните инспекторати по образованието', 'http://www.riobg.com/selectrio' %>,
+        ръководството и учителите в участващите учебни заведения и множество доброволци.
+      </p>
+
+      <h4>За сайта</h4>
+
+      <p>
+        Този сайт е с <%= link_to 'отворен код', 'https://github.com/mitio/futureiscode' %>.
+        Съдържанието е под лиценз <%= link_to 'CC BY 3.0', 'https://creativecommons.org/licenses/by/3.0/', target: '_blank', rel: 'nofollow' %>.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -15,6 +15,9 @@
  *= require_self
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 $content-width: 800px;
 
 body, html {
@@ -27,7 +30,6 @@ body, html {
 
 header,
 article,
-footer,
 .content {
   max-width: $content-width;
   margin: 0 auto;
@@ -120,30 +122,6 @@ article {
   line-height: 1.5em;
 }
 
-.footer-wrapper {
-  background-color: #46535C;
-  padding: 2%;
-  color: #899fac;
-}
-
-.footer-wrapper a {
-  color: #77b9ea;
-}
-
-.footer-wrapper a:hover {
-  color: #9ccffe;
-}
-
-footer {
-  font-size: 1.4em;
-  line-height: 1.5em;
-  text-align: left;
-}
-
-footer h4 {
-  color: #a1b0b9;
-}
-
 .hero .join-as {
   margin-top: 2em;
   border-top: 1px solid #D0D8DF;
@@ -200,6 +178,57 @@ footer h4 {
   .join-us {
     font-size: 2em;
     margin: 2em;
+  }
+}
+
+footer {
+  background-color: #46535C;
+  .social-links {
+    padding: 1% 2%;
+    background-color: #fff;
+    font-size: 1.4em;
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      line-height: 3em;
+      font-size: 1.4em;
+      font-weight: 200;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin-right: 1em;
+        a {
+          display: inline-block;
+          padding: 0 0.3em;
+          i {
+            margin-right: 0.2em;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-details {
+    padding: 1% 2%;
+    color: #899fac;
+
+    a {
+      color: #77b9ea;
+      &:hover {
+        color: #9ccffe;
+      }
+    }
+
+    .content {
+      font-size: 1.4em;
+      line-height: 1.5em;
+      text-align: left;
+    }
+
+    h4 {
+      color: #a1b0b9;
+    }
   }
 }
 
