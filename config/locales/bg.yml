@@ -39,6 +39,7 @@ bg:
     created_at: Дата на създаване
     updated_at: Дата на обновяване
     remember_me: 'Запомни ме'
+    confirmation_token: 'Код за потвърждение'
 
   activerecord:
     models:
