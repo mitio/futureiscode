@@ -16,9 +16,9 @@
     <%= f.input :phone %>
 
     <h2>Данни за вход в системата</h2>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+    <%= f.input :email, required: true %>
+    <%= f.input :password, required: true %>
+    <%= f.input :password_confirmation, required: true %>
 
     <h2>Информация за посещенията</h2>
     <%= f.input :confirmed_participation %>
