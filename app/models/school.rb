@@ -9,9 +9,9 @@ class School < ActiveRecord::Base
 
   details_attribute :visit_dates
   details_attribute :remarks
-  details_attribute :disciplines,         any_of: Options.for('disciplines').keys
-  details_attribute :available_equipment, any_of: Options.for('available_equipment').keys
-  details_attribute :meetup_options,      one_of: Options.for('meetup_options').keys
+  details_attribute :disciplines,         any_of: Options.for('disciplines').keys.map(&:to_s)
+  details_attribute :available_equipment, any_of: Options.for('available_equipment').keys.map(&:to_s)
+  details_attribute :meetup_options,      one_of: Options.for('meetup_options').keys.map(&:to_s)
 
   delegate :state, :municipality, to: :town
 

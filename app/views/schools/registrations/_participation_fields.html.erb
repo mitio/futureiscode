@@ -1,6 +1,6 @@
 <%= form.input :confirmed_participation %>
 <%= form.input :visit_dates, as: :text %>
-<%= form.input :disciplines, as: :check_boxes, collection: hash_to_collection_options(Options.for('disciplines')) %>
-<%= form.input :available_equipment, as: :check_boxes, collection: hash_to_collection_options(Options.for('available_equipment')) %>
-<%= form.input :meetup_options, as: :radio_buttons, collection: hash_to_collection_options(Options.for('meetup_options')) %>
+<%= form.input :disciplines, as: :check_boxes, collection: Options.for('disciplines').keys %>
+<%= form.input :available_equipment, as: :check_boxes, collection: Options.for('available_equipment').keys %>
+<%= form.input :meetup_options, as: :radio_buttons, collection: Options.for('meetup_options').keys %>
 <%= form.input :remarks, as: :text %>
