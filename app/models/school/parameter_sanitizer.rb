@@ -6,6 +6,12 @@ class School::ParameterSanitizer < Devise::ParameterSanitizer
       :address,
       :contact_name,
       :phone,
+      :confirmed_participation,
+      :visit_dates,
+      {disciplines: []},
+      {available_equipment: []},
+      :meetup_options,
+      :remarks,
       :email,
       :password,
       :password_confirmation

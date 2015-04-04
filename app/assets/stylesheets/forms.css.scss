@@ -1,13 +1,21 @@
 form {
   .input {
-    margin: 1em 0;
-    input {
+    margin: 1.2em 0;
+    &.check_boxes {
+      margin: 1.5em 0;
+    }
+    input, textarea {
       width: 90%;
       padding: 0.4em 0.5em;
-      &.boolean {
+      &.boolean,
+      &.radio_buttons,
+      &.check_boxes {
         width: auto;
         margin-right: 0.5em;
       }
+    }
+    textarea {
+      height: 5em;
     }
     select {
       max-width: 90%;

@@ -9,4 +9,8 @@ module ApplicationHelper
   def member_signed_in?
     school_signed_in?
   end
+
+  def hash_to_collection_options(hash)
+    hash.map { |id, label| [label, id] }
+  end
 end

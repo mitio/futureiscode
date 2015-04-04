@@ -29,6 +29,14 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
+
+    <h2>Информация за посещенията</h2>
+    <%= f.input :confirmed_participation %>
+    <%= f.input :visit_dates, as: :text %>
+    <%= f.input :disciplines, as: :check_boxes, collection: hash_to_collection_options(Options.for('disciplines')) %>
+    <%= f.input :available_equipment, as: :check_boxes, collection: hash_to_collection_options(Options.for('available_equipment')) %>
+    <%= f.input :meetup_options, as: :radio_buttons, collection: hash_to_collection_options(Options.for('meetup_options')) %>
+    <%= f.input :remarks, as: :text %>
   </div>
 
   <div class="form-actions">
