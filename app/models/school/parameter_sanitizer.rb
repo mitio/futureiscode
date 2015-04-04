@@ -1,6 +1,20 @@
 class School::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(
+    default_params.permit(*profile_attributes)
+  end
+
+  def account_update
+    attributes = profile_attributes + [
+      :current_password,
+    ]
+
+    default_params.permit(*attributes)
+  end
+
+  private
+
+  def profile_attributes
+    [
       :name,
       :town_id,
       :address,
@@ -14,7 +28,7 @@ class School::ParameterSanitizer < Devise::ParameterSanitizer
       :remarks,
       :email,
       :password,
-      :password_confirmation
-    )
+      :password_confirmation,
+    ]
   end
 end
