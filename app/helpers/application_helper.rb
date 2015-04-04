@@ -5,4 +5,8 @@ module ApplicationHelper
 
     link_to text, "##{section}", options
   end
+
+  def member_signed_in?
+    school_signed_in?
+  end
 end
