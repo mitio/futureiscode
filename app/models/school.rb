@@ -24,5 +24,5 @@ class School < ActiveRecord::Base
   validates :disciplines, presence: true
   validates :available_equipment, presence: true
   validates :meetup_options, presence: true
-  validates :confirmed_participation, acceptance: true, if: :new_record?
+  validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
 end
