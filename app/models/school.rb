@@ -22,7 +22,6 @@ class School < ActiveRecord::Base
   validates :email, email: true, allow_blank: true
   validates :visit_dates, presence: true
   validates :disciplines, presence: true
-  validates :available_equipment, presence: true
   validates :meetup_options, presence: true
   validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
 end
