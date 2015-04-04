@@ -9,6 +9,28 @@ bg:
         create: Регистрирай учебното заведение
         update: Обнови профила
 
+  options:
+    disciplines:
+      informatics: Информатика
+      information_technologies: Информационни технологии
+      hour_of_the_class: Час на класа
+      other: Друго (моля отбележете в забележки)
+
+    available_equipment:
+      projector: 'Проектор и място, на което да се прожектира'
+      wired_internet: Жичен интернет достъп
+      wifi: Безжичен интернет достъп (WiFi)
+      computers: Компютри за учениците
+      sound: Озвучителна система
+      other: Друго (моля отбележете в забележки)
+
+    meetup_options:
+      venue_after_each_shift: 'Да, можем да предоставим помещение и след първа, и след втора смяна'
+      venue_after_morning_shift: Можем да предоставим помещение само след първа смяна
+      venue_after_afternoon_shigy: Можем да предоставим помещение само след втора смяна
+      no_venue: Не можем да предоставим помещение за тази цел
+      other: Друго (моля отбележете в забележки)
+
   attributes:
     id: 'ID'
     email: Имейл
