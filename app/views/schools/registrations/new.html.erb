@@ -7,13 +7,10 @@
 
   <div class="form-inputs">
     <h2>Информация за учебното заведение</h2>
-    <%= f.input :name %>
-    <%= f.association :town, collection: Town.order('name ASC').includes(municipality: :state), label_method: :full_name %>
-    <%= f.input :address %>
+    <%= render 'school_fields', form: f %>
 
     <h2>Лице за контакт</h2>
-    <%= f.input :contact_name %>
-    <%= f.input :phone %>
+    <%= render 'contact_fields', form: f %>
 
     <h2>Данни за вход в системата</h2>
     <%= f.input :email, required: true %>
@@ -21,12 +18,7 @@
     <%= f.input :password_confirmation, required: true %>
 
     <h2>Информация за посещенията</h2>
-    <%= f.input :confirmed_participation %>
-    <%= f.input :visit_dates, as: :text %>
-    <%= f.input :disciplines, as: :check_boxes, collection: hash_to_collection_options(Options.for('disciplines')) %>
-    <%= f.input :available_equipment, as: :check_boxes, collection: hash_to_collection_options(Options.for('available_equipment')) %>
-    <%= f.input :meetup_options, as: :radio_buttons, collection: hash_to_collection_options(Options.for('meetup_options')) %>
-    <%= f.input :remarks, as: :text %>
+    <%= render 'participation_fields', form: f %>
   </div>
 
   <div class="form-actions">

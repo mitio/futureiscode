@@ -35,7 +35,10 @@ bg:
     id: 'ID'
     email: Имейл
     password: Парола
-    password_confirmation: Потвърждение на паролата
+    password_confirmation: Паролата още веднъж
+    current_password: Текуща парола
+    new_password: Нова парола
+    new_password_confirmation: Новата парола още веднъж
     created_at: Дата на създаване
     updated_at: Дата на обновяване
     remember_me: 'Запомни ме'
@@ -72,6 +75,8 @@ bg:
       signup_email_html: 'Въведете имейл адреса, с който сте се регистрирали, за да ви изпратим ново писмо за потвърждение на регистрацията. Ако не го помните, <a href="%{h contacts_path}">свържете се с нас</a>.'
     forgotten_password:
       signup_email_html: 'Въведете имейл адреса, с който сте се регистрирали, за да ви изпратим инструкции за създаване на нова парола. Ако не го помните, <a href="%{h contacts_path}">свържете се с нас</a>.'
+    leave_blank_unless_changing_password: 'Оставете това поле празно, освен ако не искате да промените паролата си.'
+    current_password_required: 'От съображения за сигурност, е необходимо да въведете текущата си парола, за да приемем промените ви.'
 
   simple_form:
     "yes": 'Да'

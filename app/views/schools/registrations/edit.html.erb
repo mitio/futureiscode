@@ -1,27 +1,36 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>Профил на <%= current_school.name %></h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render 'instructions' %>
+
+<%= simple_form_for resource, url: registration_path(resource_name), html: {method: :put} do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <h2>Информация за учебното заведение</h2>
+    <%= render 'school_fields', form: f %>
 
+    <h2>Лице за контакт</h2>
+    <%= render 'contact_fields', form: f %>
+
+    <h2>Данни за вход в системата</h2>
+    <%= f.input :email %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <p>Изпратен е имейл за потвърждение до <strong><%= resource.unconfirmed_email %></strong>. Този имейл все още не е потвърден.</p>
     <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <%= f.input :password, label: t('attributes.new_password'), hint: t('hints.leave_blank_unless_changing_password'), required: false %>
+    <%= f.input :password_confirmation, label: t('attributes.new_password_confirmation'), hint: t('hints.leave_blank_unless_changing_password'), required: false %>
+
+    <h2>Информация за посещенията</h2>
+    <%= render 'participation_fields', form: f %>
+
+    <h2>Потвърждение на промените</h2>
+    <%= f.input :current_password, hint: t('hints.current_password_required'), required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to 'Към началната страница', root_path %>

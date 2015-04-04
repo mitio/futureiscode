@@ -1,0 +1,3 @@
+<%= form.input :name %>
+<%= form.association :town, collection: Town.order('name ASC').includes(municipality: :state), label_method: :full_name %>
+<%= form.input :address %>
