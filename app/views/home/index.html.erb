@@ -1,6 +1,8 @@
 <div class="hero">
   <div class="content">
-    <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'icon' %>
+    <%= link_to root_path do %>
+      <%= image_tag 'codeweekeu-icon.png', alt: 'Code Week', class: 'icon' %>
+    <% end %>
     <h1>Бъдещето е код</h1>
     <p class="about">
       Турне на работещи в IT-сферата из училища в страната<br>
@@ -8,9 +10,12 @@
       <strong><%= ENV['CURRENT_PERIOD'] %></strong>
     </p>
     <p class="join-as">Включете се като</p>
-    <p>
+    <p class="join-as-buttons">
       <%= scroll_to 'Училище', 'school', class: 'btn' %>
       <%= scroll_to 'Лектор', 'coach', class: 'btn' %>
+    </p>
+    <p class="login">
+      Имате регистрация? Влезте като <%= link_to 'училище', new_school_session_path %> или <%= link_to 'лектор', 'TODO' %>.
     </p>
   </div>
 </div>

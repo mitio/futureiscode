@@ -167,13 +167,30 @@ header {
     margin-top: 2em;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 0.8em;
-    color: #E3E4E5;
+    color: #414242;
     font-weight: 200;
+    margin-bottom: 0;
+  }
+
+  .join-as-buttons {
+    margin-top: 0.7em;
+    margin-bottom: 1.1em;
+  }
+
+  .login {
+    font-size: 1.6em;
+    color: #535454;
+    a {
+      color: #2C5777;
+      &:hover {
+        color: #090E1C;
+      }
+    }
   }
 
   .btn {
     width: 5em;
-    margin: 0 0.5em;
+    margin: 0.5em;
   }
 
   a .small-icon {
