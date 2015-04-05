@@ -1,4 +1,6 @@
 class Speaker < ActiveRecord::Base
+  include Gravatar
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
