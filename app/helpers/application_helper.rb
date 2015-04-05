@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def member_signed_in?
-    school_signed_in?
+    school_signed_in? or speaker_signed_in?
   end
 
   def hash_to_collection_options(hash)

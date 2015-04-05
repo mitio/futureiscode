@@ -1,0 +1,4 @@
+<%= form.input :name %>
+<%= form.input :phone %>
+<%= form.association :company, collection: Company.order('name'), include_blank: 'Друга фирма (посочете по-долу)' %>
+<%= form.input :other_company %>

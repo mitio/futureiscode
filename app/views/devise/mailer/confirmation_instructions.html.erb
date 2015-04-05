@@ -1,0 +1,7 @@
+<p>Здравейте, <%= @resource.person_name %>,</p>
+
+<p>За да потвърдите профила си на <%= translated_profile_type_for @resource %> в сайта на "Бъдещето е код", отворете линка по-долу:</p>
+
+<p><%= link_to 'Потвърди профила →', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Поздрави,<br />Екипът на Бъдещето е код</p>

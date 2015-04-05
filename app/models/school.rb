@@ -24,4 +24,8 @@ class School < ActiveRecord::Base
   validates :disciplines, presence: true
   validates :meetup_options, presence: true
   validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
+
+  def person_name
+    contact_name
+  end
 end

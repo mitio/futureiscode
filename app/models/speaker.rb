@@ -8,4 +8,8 @@ class Speaker < ActiveRecord::Base
   belongs_to :company
 
   validates :name, presence: true
+
+  def person_name
+    name
+  end
 end

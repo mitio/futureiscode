@@ -3,6 +3,10 @@ bg:
     menu:
       lists: 'Номенклатури'
 
+  profile_types:
+    speaker: лектор
+    school: учебно заведение
+
   helpers:
     submit:
       school:

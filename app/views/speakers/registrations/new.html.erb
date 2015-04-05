@@ -12,10 +12,7 @@
     <%= f.input :password_confirmation, required: true %>
 
     <h2>Данни за контакт с вас</h2>
-    <%= f.input :name %>
-    <%= f.input :phone %>
-    <%= f.association :company, collection: Company.order('name'), include_blank: 'Друга фирма (посочете по-долу)' %>
-    <%= f.input :other_company %>
+    <%= render 'contact_fields', form: f %>
   </div>
 
   <div class="form-actions">
@@ -23,4 +20,4 @@
   </div>
 <% end %>
 
-<%= render 'speakers/shared/links' %>
+<%= render 'devise/shared/links' %>

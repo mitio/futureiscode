@@ -1,4 +1,4 @@
-<h2>Вход за учебни заведения</h2>
+<h2>Вход като <%= translated_profile_type_for(resource) %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -8,8 +8,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, 'Вход като училище' %>
+    <%= f.button :submit, "Вход като #{translated_profile_type_for(resource)}" %>
   </div>
 <% end %>
 
-<%= render 'schools/shared/links' %>
+<%= render 'devise/shared/links' %>
