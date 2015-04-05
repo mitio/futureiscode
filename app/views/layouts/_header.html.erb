@@ -12,9 +12,14 @@
         Здравейте, <%= link_to current_school.contact_name, edit_school_registration_path, title: 'Редакция на профила ви' %>.
         <%= link_to 'Изход', destroy_school_session_path, method: :delete %>
       </div>
+    <% elsif speaker_signed_in? %>
+      <div class="member-links">
+        Здравейте, <%= link_to current_speaker.name, edit_speaker_registration_path, title: 'Редакция на профила ви' %>.
+        <%= link_to 'Изход', destroy_speaker_session_path, method: :delete %>
+      </div>
     <% else %>
       <div class="join">
-        <%= link_to 'Лектор', root_path(anchor: 'coach'), class: 'btn' %>
+        <%= link_to 'Лектор', new_speaker_registration_path, class: 'btn' %>
         <%= link_to 'Училище', new_school_registration_path, class: 'btn' %>
       </div>
     <% end %>
