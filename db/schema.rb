@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20150405100701) do
     t.datetime "updated_at",                          null: false
   end
 
+  add_index "schools", ["confirmation_token"], name: "index_schools_on_confirmation_token", unique: true, using: :btree
   add_index "schools", ["confirmed_participation", "name"], name: "index_schools_on_confirmed_participation_and_name", using: :btree
   add_index "schools", ["email"], name: "index_schools_on_email", unique: true, using: :btree
   add_index "schools", ["reset_password_token"], name: "index_schools_on_reset_password_token", unique: true, using: :btree
