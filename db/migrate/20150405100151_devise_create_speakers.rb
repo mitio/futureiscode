@@ -2,7 +2,7 @@ class DeviseCreateSpeakers < ActiveRecord::Migration
   def change
     create_table(:speakers) do |t|
       t.string :name, null: false
-      t.references :compnay
+      t.references :company
       t.string :other_company
       t.string :phone
 

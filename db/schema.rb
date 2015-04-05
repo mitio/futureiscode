@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150405100701) do
 
   create_table "speakers", force: :cascade do |t|
     t.string   "name",                               null: false
-    t.integer  "compnay_id"
+    t.integer  "company_id"
     t.string   "other_company"
     t.string   "phone"
     t.string   "email",                              null: false
