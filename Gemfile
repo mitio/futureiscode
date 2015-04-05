@@ -23,6 +23,8 @@ gem 'email_validator'
 gem 'font-awesome-sass'
 gem 'devise-i18n'
 gem 'simple_form'
+gem 'fog', require: 'fog/aws/storage'
+gem 'asset_sync'
 
 group :development do
   gem 'letter_opener'
