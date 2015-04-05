@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == School
       School::ParameterSanitizer.new(School, :school, params)
+    elsif resource_class == Speaker
+      Speaker::ParameterSanitizer.new(Speaker, :speaker, params)
     else
       super
     end

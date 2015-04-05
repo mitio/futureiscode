@@ -1,0 +1,26 @@
+<h1>Регистрация на лектор</h1>
+
+<%= render 'instructions' %>
+
+<%= simple_form_for resource, url: registration_path(resource_name) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <h2>Данни за вход в системата</h2>
+    <%= f.input :email, required: true %>
+    <%= f.input :password, required: true %>
+    <%= f.input :password_confirmation, required: true %>
+
+    <h2>Данни за контакт с вас</h2>
+    <%= f.input :name %>
+    <%= f.input :phone %>
+    <%= f.association :company, collection: Company.order('name'), include_blank: 'Друга фирма (посочете по-долу)' %>
+    <%= f.input :other_company %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= render 'speakers/shared/links' %>
