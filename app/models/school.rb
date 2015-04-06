@@ -28,4 +28,8 @@ class School < ActiveRecord::Base
   def person_name
     contact_name
   end
+
+  def name_with_location
+    "#{name}, #{town.full_name}"
+  end
 end
