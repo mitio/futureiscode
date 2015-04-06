@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406164841) do
+ActiveRecord::Schema.define(version: 20150406193200) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20150406164841) do
     t.string   "cover_image_content_type"
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
+    t.string   "url"
+    t.string   "public_email"
   end
 
   add_index "events", ["approved", "date"], name: "index_events_on_approved_and_date", using: :btree

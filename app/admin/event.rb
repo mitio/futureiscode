@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
   permit_params :speaker_id, :school_id, :date, :cover_image, :name, :details,
-                :approved
+                :approved, :url, :public_email
 
   index do
     selectable_column
@@ -24,6 +24,8 @@ ActiveAdmin.register Event do
       f.input :date
       f.input :name
       f.input :approved
+      f.input :url
+      f.input :public_email
       f.input :details, hint: 'Текстът в полето поддържа Markdown.'
       f.input :cover_image
     end
@@ -39,6 +41,8 @@ ActiveAdmin.register Event do
         row :date
         row :name
         row :approved
+        row :url
+        row :public_email
         row :details do
           simple_format resource.details if resource.details
         end
