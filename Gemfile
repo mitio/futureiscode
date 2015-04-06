@@ -25,6 +25,7 @@ gem 'devise-i18n'
 gem 'simple_form'
 gem 'fog', require: 'fog/aws/storage'
 gem 'asset_sync'
+gem 'rdiscount'
 
 group :development do
   gem 'letter_opener'

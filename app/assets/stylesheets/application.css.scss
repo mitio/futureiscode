@@ -407,6 +407,17 @@ textarea#event_details {
   height: 18em;
 }
 
+.event {
+  .intro {
+    background-color: #DEE4E7;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
 @media screen and (max-width: 790px) {
   header {
     .content {

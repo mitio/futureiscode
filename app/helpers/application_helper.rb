@@ -1,3 +1,5 @@
+require_dependency 'markup'
+
 module ApplicationHelper
   def scroll_to(text, section, options = {})
     options[:class] ||= ''
@@ -12,5 +14,9 @@ module ApplicationHelper
 
   def hash_to_collection_options(hash)
     hash.map { |id, label| [label, id] }
+  end
+
+  def markup(text)
+    Markup.format text
   end
 end

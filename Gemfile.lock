@@ -296,6 +296,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.1)
+    rdiscount (2.1.8)
     ref (1.0.5)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
@@ -369,6 +370,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.1)
   rails-i18n
+  rdiscount
   rollbar
   sass-rails (~> 5.0)
   simple_form

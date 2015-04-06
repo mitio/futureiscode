@@ -37,4 +37,8 @@ class School < ActiveRecord::Base
   def name_with_location
     "#{name}, #{town.full_name}"
   end
+
+  def full_address
+    "#{town.full_name}, #{address}"
+  end
 end

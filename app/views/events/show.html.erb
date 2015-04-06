@@ -1,17 +1,45 @@
-<h1><%= @event.name_or_default %></h1>
+<div class="event">
+  <div class="intro" style="background-image: url(<%= @event.cover_image.url(:large) if @event.cover_image? %>);">
+    <h1><%= @event.name_or_default %></h1>
+    <div class="school"><%= @event.school.name %></div>
+    <div class="town"><%= @event.school.town.name %></div>
+  </div>
 
-<!-- TODO: status: approved or not -->
+  <% unless @event.approved? %>
+    <p><em>Събитието очаква потвърждение от учебното заведение.</em></p>
+  <% end %>
 
-<h2><%= @event.school.name %></h2>
+  <ul class="details inline">
+    <li>
+      <label>Дата:</label>
+      <span class="value"><%= l @event.date %></span>
+    </li>
+    <li>
+      <label>Лектор:</label>
+      <span class="value"><%= @event.speaker.name %></span>
+    </li>
+    <% if @event.public_email.present? %>
+      <li>
+        <label>Имейл за връзка:</label>
+        <span class="value"><%= mail_to @event.public_email %></span>
+      </li>
+    <% end %>
+    <li>
+      <label>Адрес:</label>
+      <span class="value"><%= @event.school.full_address %></span>
+    </li>
 
-<ul class="details inline">
-  <li>
-    <label>Дата:</label>
-    <span class="value"><%= l @event.date %></span>
-  </li>
-</ul>
+    <% if @event.url.present? %>
+      <li>
+        <label>Сайт:</label>
+        <span class="value"><%= link_to truncate(@event.url, length: 50), @event.url, target: '_blank', rel: 'nofollow' %></span>
+      </li>
+    <% end %>
+  </ul>
 
-<!-- TODO: full address -->
-<!-- TODO: speaker name -->
-<!-- TODO: cover image -->
-<!-- TODO: other details -->
+  <h2>Описание</h2>
+
+  <div class="details">
+    <%= markup @event.details %>
+  </div>
+</div>
