@@ -403,6 +403,10 @@ ul.details {
   }
 }
 
+textarea#event_details {
+  height: 18em;
+}
+
 @media screen and (max-width: 790px) {
   header {
     .content {

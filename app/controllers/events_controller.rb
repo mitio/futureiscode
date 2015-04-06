@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_speaker!
   respond_to :html
+
+  before_filter :authenticate_speaker!, only: [:new, :create, :edit, :update]
 
   def index
     @events = Event.newest_first.approved
   end
 
   def new
-    @event = Event.new
+    @event = Event.new default_event_params
   end
 
   def create
@@ -35,5 +36,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:school_id, :date, :name, :cover_image, :details)
+  end
+
+  def default_event_params
+    params
+      .fetch(:event, {})
+      .permit(:school_id)
+      .merge(public_email: current_speaker.email, date: 1.week.from_now.to_date)
   end
 end
