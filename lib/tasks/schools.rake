@@ -50,9 +50,11 @@ namespace :app do
         school.skip_confirmation!
         school.confirmed_participation = true
 
+        options_split_pattern = /, (?=[А-ЯA-Z])/
+
         # Disciplines
-        disciplines           = row['disciplines'].to_s.split(/\s*,\s*/)
-        school.disciplines    = disciplines.map { |discipline| predefined_disciplines.key(discipline) }.compact
+        disciplines           = row['disciplines'].to_s.split(options_split_pattern)
+        school.disciplines    = disciplines.map { |discipline| predefined_disciplines.key(discipline).try(:to_s) }.compact
         remaining_disciplines = disciplines.reject { |discipline| predefined_disciplines.value?(discipline) }
         school.disciplines    = ['other'] if school.disciplines.blank?
 
@@ -62,8 +64,8 @@ namespace :app do
         end
 
         # Available_equipment
-        available_equipment        = row['available_equipment'].to_s.split(/\s*,\s*/)
-        school.available_equipment = available_equipment.map { |equipment| predefined_available_equipment.key(equipment) }.compact
+        available_equipment        = row['available_equipment'].to_s.split(options_split_pattern)
+        school.available_equipment = available_equipment.map { |equipment| predefined_available_equipment.key(equipment).try(:to_s) }.compact
         remaining_options          = available_equipment.reject { |equipment| predefined_available_equipment.value?(equipment) }
         school.available_equipment = ['other'] if school.available_equipment.blank?
 
@@ -73,15 +75,9 @@ namespace :app do
         end
 
         # Meetup_options
-        meetup_options        = row['meetup_options'].to_s.split(/\s*,\s*/)
-        school.meetup_options = meetup_options.find { |option| predefined_meetup_options.key(option) }
-        remaining_options     = meetup_options.reject { |option| predefined_meetup_options.value?(option) }
+        meetup_options        = row['meetup_options'].to_s
+        school.meetup_options = predefined_meetup_options.key(meetup_options)
         school.meetup_options = 'other' if school.meetup_options.blank?
-
-        if remaining_options.any?
-          school.remarks ||= ''
-          school.remarks += "\n\nВъзможност за организация на еднократната сбирка в извънучебно време: #{remaining_options.join(', ')}"
-        end
 
         school.remarks = school.remarks.strip if school.remarks
 
