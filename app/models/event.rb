@@ -12,10 +12,10 @@ class Event < ActiveRecord::Base
   validates :speaker_id, presence: true
   validates :school_id, presence: true
   validates :date, presence: true
+  validates :details, presence: true
   validates :cover_image, attachment_size: {less_than: 2.megabytes},
                           attachment_content_type: {content_type: /\Aimage\/.*\Z/},
                           dimensions: {min_width: 800, min_height: 100}
-
 
   scope :newest_first, -> { order(arel_table[:date].desc) }
   scope :approved, -> { where(approved: true) }
