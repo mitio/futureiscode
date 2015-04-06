@@ -23,7 +23,7 @@ ActiveAdmin.register Company do
   filter :created_at
 
   form do |f|
-    f.inputs 'Company Details' do
+    f.inputs 'Информация за фирма' do
       f.input :name
       f.input :slug
       f.input :url
@@ -34,7 +34,7 @@ ActiveAdmin.register Company do
   end
 
   show do |resource|
-    panel 'Compnay Details' do
+    panel 'Информация за фирма' do
       attributes_table_for resource do
         row :id
         row :name

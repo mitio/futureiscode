@@ -21,7 +21,7 @@ ActiveAdmin.register School do
   end
 
   form do |f|
-    f.inputs 'School Details' do
+    f.inputs 'Информация за учебно заведение' do
       f.input :name
       f.input :town, collection: Town.order('name ASC').includes(municipality: :state)
       f.input :address

@@ -16,7 +16,7 @@ ActiveAdmin.register Speaker do
   end
 
   form do |f|
-    f.inputs 'Speaker Details' do
+    f.inputs 'Детайли за лектор' do
       f.input :name
       f.input :email, hint: 'На този имейл ще бъде изпратено писмо за потвърждение на профила.'
       f.input :company
