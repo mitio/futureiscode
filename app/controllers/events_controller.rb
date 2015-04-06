@@ -35,7 +35,15 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:school_id, :date, :name, :cover_image, :details)
+    params.require(:event).permit(
+      :school_id,
+      :date,
+      :name,
+      :url,
+      :public_email,
+      :cover_image,
+      :details
+    )
   end
 
   def default_event_params
