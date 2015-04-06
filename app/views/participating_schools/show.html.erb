@@ -1,7 +1,13 @@
 <h1><%= @school.name %></h1>
 
+<p>Вижте <%= link_to 'списъка с всички учебни заведения', participating_schools_path %>.</p>
+
 <h2>Информация за учебното заведение</h2>
 <ul class="details inline">
+  <li>
+    <label>Наименование:</label>
+    <span class="value"><%= @school.name %></span>
+  </li>
   <li>
     <label>Област:</label>
     <span class="value"><%= @school.state.name %></span>
