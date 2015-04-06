@@ -12,4 +12,8 @@ class Speaker < ActiveRecord::Base
   def person_name
     name
   end
+
+  def company_or_other
+    company or other_company
+  end
 end
