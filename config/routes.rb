@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :contacts, only: :index
+  resources :participating_schools
 
   as :school do
     get 'schools/profile', to: 'devise/registrations#edit', as: :school_root

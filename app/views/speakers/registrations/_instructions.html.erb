@@ -1,6 +1,10 @@
 <p>Формуляр, попълван от лектор, желаещ да се включи в <%= link_to 'Бъдещето е код', root_path %>.</p>
 
-<% unless speaker_signed_in? %>
+<% if speaker_signed_in? %>
+  <p>
+    <%= link_to 'Вижте списък с регистрираните учебни заведения →', participating_schools_path, class: 'btn' %>
+  </p>
+<% else %>
   <p>Ако вече имате регистрация, <%= link_to 'влезте от тук', new_speaker_session_path %>.</p>
 <% end %>
 

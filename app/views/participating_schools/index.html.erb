@@ -1,0 +1,16 @@
+<h1>Учебни заведения</h1>
+
+<p>Списък на учебните заведения, които са изявили желание да се включат в Бъдещето е код.</p>
+
+<% @schools.group_by(&:town).each do |town, schools| %>
+  <h2><%= town.full_name %></h2>
+  <% schools.each do |school| %>
+    <div class="school">
+      <h3><%= school.name %></h3>
+      <p>Адрес: <%= school.address %></p>
+      <% if speaker_signed_in? %>
+        <p>Лице за контакт: <%= school.contact_name %>, <%= school.phone %>, <%= mail_to school.email %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
