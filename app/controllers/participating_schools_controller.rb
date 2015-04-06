@@ -1,9 +1,6 @@
 class ParticipatingSchoolsController < ApplicationController
   def index
-    @schools = School
-      .participating
-      .includes(town: {municipality: :state})
-      .order('town_id, name')
+    @schools = School.participating.with_location_info.order('town_id, name')
   end
 
   def show
