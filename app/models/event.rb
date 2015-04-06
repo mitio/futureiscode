@@ -3,10 +3,10 @@ class Event < ActiveRecord::Base
   belongs_to :school
 
   has_attached_file :cover_image, styles: {
-    large:      '600x600>',
-    medium:     '300x300>',
-    small:      '100x100>',
-    small_crop: '100x100#',
+    large:  '1600x400>',
+    medium: '1200x300>',
+    small:  '800x200>',
+    tiny:   '400x100>',
   }
 
   validates :speaker_id, presence: true
