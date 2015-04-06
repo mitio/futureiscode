@@ -6,10 +6,13 @@
   <h2><%= town.full_name %></h2>
   <% schools.each do |school| %>
     <div class="school">
-      <h3><%= school.name %></h3>
-      <p>Адрес: <%= school.address %></p>
+      <h3>
+        <%= school.name %>
+        <%= link_to 'Подробности →', participating_school_path(school), class: 'btn' %>
+      </h3>
+      <p class="address">Адрес: <%= school.address %></p>
       <% if speaker_signed_in? %>
-        <p>Лице за контакт: <%= school.contact_name %>, <%= school.phone %>, <%= mail_to school.email %></p>
+        <p class="contact">Лице за контакт: <%= school.contact_name %>, <%= school.phone %>, <%= mail_to school.email %></p>
       <% end %>
     </div>
   <% end %>

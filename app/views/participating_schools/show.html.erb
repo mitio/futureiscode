@@ -1,0 +1,80 @@
+<h1><%= @school.name %></h1>
+
+<h2>Информация за учебното заведение</h2>
+<ul class="details inline">
+  <li>
+    <label>Област:</label>
+    <span class="value"><%= @school.state.name %></span>
+  </li>
+  <li>
+    <label>Община:</label>
+    <span class="value"><%= @school.municipality.name %></span>
+  </li>
+  <li>
+    <label>Населено място:</label>
+    <span class="value"><%= @school.town.name %></span>
+  </li>
+  <li>
+    <label>Адрес:</label>
+    <span class="value"><%= @school.address %></span>
+  </li>
+</ul>
+
+<h2>Инфомрмация за участие</h2>
+<ul class="details">
+  <li>
+    <label>Предмет/и</label>
+    <ul>
+      <% @school.disciplines.each do |option| %>
+        <li><%= Options.translate(option, type: 'disciplines') %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li>
+    <label>Налична техника</label>
+    <ul>
+      <% @school.available_equipment.each do |option| %>
+        <li><%= Options.translate(option, type: 'available_equipment') %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li>
+    <label>Възможност за организация на еднократната сбирка в извънучебно време</label>
+    <span class="value">
+      <%= Options.translate(@school.meetup_options, type: 'meetup_options') %>
+    </span>
+  </li>
+  <% if speaker_signed_in? %>
+    <li>
+      <label>Дати за посещение</label>
+      <span class="value"><%= simple_format @school.visit_dates %></span>
+    </li>
+    <% if @school.remarks.present? %>
+      <li>
+        <label>Забележки</label>
+        <span class="value"><%= simple_format @school.remarks %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>Лице за контакт</h2>
+<% if speaker_signed_in? %>
+  <ul class="details inline">
+    <li>
+      <label>Име:</label>
+      <span class="value"><%= @school.contact_name %></span>
+    </li>
+    <li>
+      <label>Телефон:</label>
+      <span class="value"><%= @school.phone %></span>
+    </li>
+    <li>
+      <label>Имейл адрес:</label>
+      <span class="value"><%= mail_to @school.email %></span>
+    </li>
+  </ul>
+<% else %>
+  <p>Влезте като лектор, за да видите данните за контакт за това учебно заведение и пълния му профил.</p>
+  <p><%= link_to 'Вход като лектор', new_speaker_session_path, class: 'btn' %></p>
+<% end %>

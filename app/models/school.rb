@@ -25,6 +25,8 @@ class School < ActiveRecord::Base
   validates :meetup_options, presence: true
   validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
 
+  scope :participating, -> { where(confirmed_participation: true) }
+
   def person_name
     contact_name
   end
