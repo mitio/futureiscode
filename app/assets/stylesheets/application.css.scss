@@ -336,6 +336,35 @@ footer {
   }
 }
 
+ul.schools {
+  margin-left: 0;
+  padding-left: 1.5em;
+  list-style: circle;
+  li {
+    line-height: 1.6em;
+    font-size: 1.2em;
+    font-weight: 200;
+    a {
+      display: inline-block;
+      .btn {
+        padding: 0.3em 0.6em;
+        font-size: 0.8em;
+        vertical-align: middle;
+        line-height: 1.1em;
+        background-color: #E8ECF0;
+        color: #8A8F93;
+      }
+      &:hover {
+        color: #354D5F;
+        .btn {
+          background-color: #354d5f;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
 ul.details {
   padding: 0;
   margin: 1em 0;
