@@ -1,0 +1,9 @@
+<h1>Събития</h1>
+
+<% if @events.any? %>
+  <ul>
+    <li><%= link_to @event.name_or_default, @event %></li>
+  </ul>
+<% else %>
+  <p>Все още няма регистрирани събития.</p>
+<% end %>

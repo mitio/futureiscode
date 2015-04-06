@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :contacts, only: :index
   resources :participating_schools
+  resources :events
 
   as :school do
     get 'schools/profile', to: 'devise/registrations#edit', as: :school_root

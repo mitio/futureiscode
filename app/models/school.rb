@@ -2,6 +2,7 @@ class School < ActiveRecord::Base
   include DetailsHash
 
   belongs_to :town
+  has_many :events
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -26,6 +27,8 @@ class School < ActiveRecord::Base
   validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
 
   scope :participating, -> { where(confirmed_participation: true) }
+  scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
+  scope :with_location_info, -> { includes(town: {municipality: :state}) }
 
   def person_name
     contact_name

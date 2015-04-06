@@ -1,0 +1,15 @@
+<h1>Промяна на събитие</h1>
+
+<%= render 'instructions' %>
+
+<%= simple_form_for @event do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= render 'event_fields', form: f %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

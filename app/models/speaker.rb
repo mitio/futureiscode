@@ -6,6 +6,7 @@ class Speaker < ActiveRecord::Base
          :confirmable
 
   belongs_to :company
+  has_many :events
 
   validates :name, presence: true
 

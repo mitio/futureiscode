@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405100701) do
+ActiveRecord::Schema.define(version: 20150406164841) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -61,6 +61,24 @@ ActiveRecord::Schema.define(version: 20150405100701) do
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
   add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true, using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "speaker_id",                               null: false
+    t.integer  "school_id",                                null: false
+    t.date     "date",                                     null: false
+    t.boolean  "approved",                 default: false, null: false
+    t.string   "name"
+    t.text     "details"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+  end
+
+  add_index "events", ["approved", "date"], name: "index_events_on_approved_and_date", using: :btree
+  add_index "events", ["date"], name: "index_events_on_date", using: :btree
 
   create_table "municipalities", force: :cascade do |t|
     t.string   "code",       null: false

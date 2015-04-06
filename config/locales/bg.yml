@@ -16,6 +16,13 @@ bg:
         create: Регистрирай лектор
         update: Обнови профила
 
+  default_event_name: 'Събитие на %{date}'
+
+  errors:
+    messages:
+      too_narrow: 'е с твърде малка ширина; трябва да е поне %{min_width} пиксела'
+      too_short: 'е с твърде малка височина; трябва да е поне %{min_height} пиксела'
+
   attributes:
     id: 'ID'
     email: Имейл
@@ -39,6 +46,7 @@ bg:
       admin_user: 'Администратор'
       comment: 'Коментар'
       company: 'Фирма'
+      event: Събитие
 
     attributes:
       school:
@@ -61,6 +69,15 @@ bg:
         company: Фирма
         other_company: Друга фирма
         phone: Телефон за контакт
+
+      event:
+        name: Име на събитието
+        details: Подробна информация за събитието
+        date: 'Дата, на която ще се проведе събитието'
+        speaker: Лектор
+        school: Учебно заведение
+        cover_image: Изображение
+        approved: Потвърдено от учебното заведение
 
   hints:
     confirmation_email:
