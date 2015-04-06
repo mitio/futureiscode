@@ -1,5 +1,6 @@
 ActiveAdmin.register Speaker do
-  permit_params :name, :email, :company_id, :other_company, :phone
+  permit_params :name, :email, :company_id, :other_company, :phone,
+                :password, :password_confirmation
 
   index do
     selectable_column
@@ -17,10 +18,14 @@ ActiveAdmin.register Speaker do
   form do |f|
     f.inputs 'Speaker Details' do
       f.input :name
-      f.input :email
+      f.input :email, hint: 'На този имейл ще бъде изпратено писмо за потвърждение на профила.'
       f.input :company
       f.input :other_company
       f.input :phone
+      if f.object.new_record?
+        f.input :password
+        f.input :password_confirmation
+      end
     end
     f.actions
   end
