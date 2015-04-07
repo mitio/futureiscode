@@ -438,6 +438,21 @@ textarea#event_details {
       color: #2D2D2D;
       line-height: 1.4em;
     }
+
+    .organizer {
+      font-size: 1.6em;
+      font-weight: 200;
+      color: #888;
+      margin: 1em 0 0 0;
+      line-height: 2em;
+      .company {
+        margin-left: 0.5em;
+        img {
+          max-height: 2em;
+          vertical-align: middle;
+        }
+      }
+    }
   }
 }
 

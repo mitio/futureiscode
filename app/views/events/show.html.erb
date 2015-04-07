@@ -5,6 +5,11 @@
         <h1><%= @event.name_or_default %></h1>
         <div class="school"><%= @event.school.name %></div>
         <div class="town"><%= @event.school.town.name_with_kind %></div>
+        <% if @event.speaker.company_or_other.present? %>
+          <div class="organizer">
+            Организирано от <%= link_to_company @event.speaker.company_or_other %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
