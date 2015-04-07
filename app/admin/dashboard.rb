@@ -8,6 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         'Участващи училища'    => School.where(confirmed_participation: true).count,
         'Всички училища'       => School.count,
         'Регистрирани лектори' => Speaker.count,
+        'Събития'              => Event.count,
       }
 
       stats.each do |label, value|
