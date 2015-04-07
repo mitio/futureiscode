@@ -53,4 +53,9 @@
   <div class="details">
     <%= markup @event.details %>
   </div>
+
+  <% if speaker_signed_in? && current_speaker == @event.speaker %>
+    <h2>Инструменти</h2>
+    <p><%= link_to 'Редактирай събитието', edit_event_path(@event), class: 'btn' %></p>
+  <% end %>
 </div>
