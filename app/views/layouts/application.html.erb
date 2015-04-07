@@ -10,6 +10,7 @@
   <div class="page">
     <%= render 'layouts/header' %>
     <%= render 'layouts/alerts' %>
+    <%= yield :top_section if content_for?(:top_section) %>
 
     <div class="content-wrapper">
       <article>

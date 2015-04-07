@@ -407,14 +407,37 @@ textarea#event_details {
   height: 18em;
 }
 
-.event {
-  .intro {
-    background-color: #DEE4E7;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.event-header {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .content-wrapper {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 3% $content-side-padding;
+
+    h1 {
+      margin: 0.2em 0 0.8em 0;
+      font-size: 4em;
+      text-shadow: 0 1px 0 #E0E0E0;
+      color: #2D2D2D;
+      font-weight: 600;
+      line-height: 1.1em;
+    }
+
+    .school {
+      font-size: 2.6em;
+      font-weight: 200;
+      line-height: 1.5em;
+    }
+
+    .town {
+      font-size: 2em;
+      font-weight: 200;
+      color: #2D2D2D;
+      line-height: 1.4em;
+    }
   }
 }
 
