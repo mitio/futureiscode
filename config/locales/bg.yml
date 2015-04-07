@@ -7,6 +7,10 @@ bg:
     speaker: лектор
     school: учебно заведение
 
+  teritorrial_divisions:
+    municipality: 'общ. %{name}'
+    state: 'обл. %{name}'
+
   helpers:
     submit:
       school:
