@@ -2,7 +2,9 @@
 
 <% if @events.any? %>
   <ul>
-    <li><%= link_to @event.name_or_default, @event %></li>
+    <% @events.each do |event| %>
+      <li><%= link_to event.name_or_default, event %></li>
+    <% end %>
   </ul>
 <% else %>
   <p>Все още няма регистрирани събития.</p>
