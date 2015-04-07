@@ -1,11 +1,20 @@
 <h1>Събития</h1>
 
 <% if @events.any? %>
-  <ul>
-    <% @events.each do |event| %>
-      <li><%= link_to event.name_or_default, event %></li>
+  <div class="events">
+    <% @events.group_by { |event| l event.date, format: '%B, %Y' }.each do |month, events| %>
+      <h2><%= month %></h2>
+      <ul>
+        <% events.each do |event| %>
+          <li>
+            <%= link_to event do %>
+              <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <p>Все още няма регистрирани събития.</p>
 <% end %>
