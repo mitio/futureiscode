@@ -26,6 +26,8 @@ gem 'simple_form'
 gem 'fog', require: 'fog/aws/storage'
 gem 'asset_sync'
 gem 'rdiscount'
+gem 'premailer-rails'
+gem 'nokogiri'
 
 group :development do
   gem 'letter_opener'
