@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include DeletableAttachment
+
   belongs_to :speaker
   belongs_to :school
 
@@ -19,6 +21,8 @@ class Event < ActiveRecord::Base
 
   scope :newest_first, -> { order(arel_table[:date].desc) }
   scope :approved, -> { where(approved: true) }
+
+  deletable_attachment :cover_image
 
   def name_or_default
     name or defaut_name

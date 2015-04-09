@@ -42,6 +42,7 @@ class EventsController < ApplicationController
       :url,
       :public_email,
       :cover_image,
+      :delete_cover_image,
       :details
     )
   end
