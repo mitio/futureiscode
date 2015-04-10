@@ -28,6 +28,7 @@ gem 'asset_sync'
 gem 'rdiscount'
 gem 'premailer-rails'
 gem 'nokogiri'
+gem 'skylight'
 
 group :development do
   gem 'letter_opener'
