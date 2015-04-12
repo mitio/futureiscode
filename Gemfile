@@ -29,6 +29,7 @@ gem 'rdiscount'
 gem 'premailer-rails'
 gem 'nokogiri'
 gem 'skylight'
+gem 'geocoder'
 
 group :development do
   gem 'letter_opener'

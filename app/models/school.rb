@@ -30,6 +30,9 @@ class School < ActiveRecord::Base
   scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
   scope :with_location_info, -> { includes(town: {municipality: :state}) }
 
+  geocoded_by :full_address
+  after_validation :geocode, if: :full_address_changed?
+
   def person_name
     contact_name
   end
@@ -40,5 +43,9 @@ class School < ActiveRecord::Base
 
   def full_address
     "#{town.full_name}, #{address}"
+  end
+
+  def full_address_changed?
+    town_id_changed? || address_changed?
   end
 end
