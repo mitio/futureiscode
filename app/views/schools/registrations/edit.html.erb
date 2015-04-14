@@ -1,4 +1,25 @@
+<% if current_school.pending_events.any? %>
+  <h2>Събития, които <span class="label warning">очакват потвърждение</span></h2>
+  <p>Прегледайте и потвърдете следните събития, създадени от лектори във вашето учебно заведение:</p>
+  <ul>
+    <% current_school.pending_events.newest_first.each do |event| %>
+      <li>
+        <%= link_to event do %>
+          <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <p class="separated">Само потвърдените събития се виждат в публичния списък със събития. Ако има проблем с дадено събитие, ще можете да се свържете с лектора, за да отстраните неточностите.</p>
+<% end %>
+
 <h1>Профил на <%= current_school.name %></h1>
+
+<% if current_school.confirmed_participation? %>
+  <p class="separated">
+    <%= link_to 'Вижте публичния профил на вашето учебно заведение →', participating_school_path(current_school) %>
+  </p>
+<% end %>
 
 <%= render 'instructions' %>
 

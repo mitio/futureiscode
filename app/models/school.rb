@@ -33,6 +33,10 @@ class School < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
+  def pending_events
+    events.pending
+  end
+
   def person_name
     contact_name
   end

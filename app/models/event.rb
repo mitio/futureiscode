@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
 
   scope :newest_first, -> { order(arel_table[:date].desc) }
   scope :approved, -> { where(approved: true) }
+  scope :pending, -> { where(approved: false) }
 
   deletable_attachment :cover_image
 
