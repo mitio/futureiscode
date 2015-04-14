@@ -15,7 +15,11 @@ ActiveAdmin.register School do
     end
     column 'Акт.?', :confirmed_participation
     column 'Контакт', :contact_name
-    column :created_at
+    column 'Събития', sortable: :events_count do |row|
+      if row.events_count > 0
+        link_to "#{row.events_count} (виж)", admin_events_path(q: {school_id_eq: row.id})
+      end
+    end
     column :updated_at
     actions
   end
