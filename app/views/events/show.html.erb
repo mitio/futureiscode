@@ -4,7 +4,7 @@
       <div class="content">
         <h1><%= @event.name_or_default %></h1>
         <div class="school"><%= link_to @event.school.name, participating_school_path(@event.school) %></div>
-        <div class="town"><%= @event.school.town.name_with_kind %></div>
+        <div class="town"><%= l @event.date, format: '%d %B' %>, <%= @event.school.town.name_with_kind %></div>
         <% if @event.speaker.company_or_other.present? %>
           <div class="organizer">
             Организирано от <%= link_to_company @event.speaker.company_or_other %>
@@ -23,7 +23,7 @@
   <ul class="details inline">
     <li>
       <label>Дата:</label>
-      <span class="value"><%= l @event.date %></span>
+      <span class="value"><%= l @event.date, format: '%d %B %Y г.' %></span>
     </li>
     <li>
       <label>Лектор:</label>
