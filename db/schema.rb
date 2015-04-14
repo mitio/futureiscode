@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412130358) do
+ActiveRecord::Schema.define(version: 20150414233533) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150412130358) do
     t.datetime "updated_at",                          null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "events_count",            default: 0, null: false
   end
 
   add_index "schools", ["confirmation_token"], name: "index_schools_on_confirmation_token", unique: true, using: :btree

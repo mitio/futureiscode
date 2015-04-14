@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   include DeletableAttachment
 
   belongs_to :speaker
-  belongs_to :school
+  belongs_to :school, counter_cache: true
 
   has_attached_file :cover_image, styles: {
     large:  '1600x400>',
