@@ -17,8 +17,23 @@
 <% end %>
 
 <div class="event">
-  <% unless @event.approved? %>
-    <p><span class="label warning">очаква потвърждение от учебното заведение</span></p>
+  <% if school_signed_in? && current_school == @event.school %>
+    <% if @event.approved? %>
+      <p class="separated">
+        Това събитие е <span class="label success">потвърдено</span> от вас.
+        При нужда, може да го
+        <%= link_to 'върнете в очакващо потвърждение', unapprove_event_path(@event), method: :post %>.
+      </p>
+    <% else %>
+      <p class="separated">
+        Това събитие <span class="label warning">очаква потвърждение</span> от вас.
+        <%= link_to 'Потвърдете събитието', approve_event_path(@event), method: :post, class: 'btn' %>
+      </p>
+    <% end %>
+  <% elsif !@event.approved? %>
+    <p class="separated">
+      <span class="label warning">очаква потвърждение от учебното заведение</span>
+    </p>
   <% end %>
 
   <ul class="details inline">

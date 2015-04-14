@@ -9,7 +9,7 @@
           <%= link_to event do %>
             <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
             <% unless event.approved? %>
-              <span class="label warning">чака одобрение</span>
+              <span class="label warning">чака потвърждение</span>
             <% end %>
           <% end %>
         </li>

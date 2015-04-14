@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_speaker!, only: [:new, :create, :edit, :update]
+  before_filter :authenticate_school!, only: [:approve, :unapprove]
 
   def index
     current_member = current_speaker || current_school
@@ -32,6 +33,24 @@ class EventsController < ApplicationController
     @event.update_attributes event_params
 
     respond_with @event
+  end
+
+  def approve
+    event = current_school.events.find params[:id]
+    event.update_attributes approved: true
+
+    flash[:notice] = 'Събитието е одобрено.'
+
+    redirect_to event
+  end
+
+  def unapprove
+    event = current_school.events.find params[:id]
+    event.update_attributes approved: false
+
+    flash[:notice] = 'Събитието е върнато в състояние на очакващо потвърждение.'
+
+    redirect_to event
   end
 
   private

@@ -488,6 +488,12 @@ a.map {
   }
 }
 
+p.separated {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #DDDADA;
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 799px) {
   a.map {
     img {
