@@ -430,6 +430,9 @@ textarea#event_details {
       font-size: 2.6em;
       font-weight: 200;
       line-height: 1.5em;
+      a {
+        color: #000;
+      }
     }
 
     .town {
@@ -452,6 +455,19 @@ textarea#event_details {
           vertical-align: middle;
         }
       }
+    }
+  }
+}
+
+a.map {
+  display: block;
+}
+
+@media screen and (max-width: 799px) {
+  a.map {
+    img {
+      max-width: 100%;
+      height: auto !important;
     }
   }
 }

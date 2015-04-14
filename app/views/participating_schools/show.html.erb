@@ -1,4 +1,7 @@
-<h1><%= @school.name %></h1>
+<h1>
+  <%= @school.name %><br>
+  <small><%= @school.town.name_with_kind %></small>
+</h1>
 
 <p>Вижте <%= link_to 'списъка с всички учебни заведения', participating_schools_path %>.</p>
 
@@ -25,6 +28,8 @@
     <span class="value"><%= @school.address %></span>
   </li>
 </ul>
+
+<%= link_to_map_with_preview_for @school %>
 
 <h2>Инфомрмация за участие</h2>
 <ul class="details">
@@ -87,6 +92,6 @@
     <%= link_to 'Създайте събитие в това учебно заведение →', new_event_path(event: {school_id: @school.id}), class: 'btn' %>
   </p>
 <% else %>
-  <p>Влезте като лектор, за да видите данните за контакт за това учебно заведение и пълния му профил.</p>
+  <p>Влезте като лектор, за да видите данните за контакт за това учебно заведение и пълния му профил, както и за да може да създадете събитие.</p>
   <p><%= link_to 'Вход като лектор', new_speaker_session_path, class: 'btn' %></p>
 <% end %>

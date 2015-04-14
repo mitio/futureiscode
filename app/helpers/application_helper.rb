@@ -38,4 +38,25 @@ module ApplicationHelper
       content_tag :span, company, class: 'company other'
     end
   end
+
+  def link_to_map_with_preview_for(school, width: 800, height: 300, zoom: 15, **params)
+    lat, lng = school.latitude, school.longitude
+    external_map_url = "http://www.openstreetmap.org/?mlat=#{lat}&mlon=#{lng}#map=#{zoom}/#{lat}/#{lng}"
+
+    # Documentation: http://open.mapquestapi.com/staticmap/
+    map_params = {
+      key: ENV['MAPQUEST_API_KEY'],
+      size: "#{width},#{height}",
+      zoom: zoom,
+      center: "#{lat},#{lng}",
+      imagetype: 'jpg',
+      pois: "blue_1,#{lat},#{lng}",
+    }.merge(params)
+
+    static_map_image_url = "http://open.mapquestapi.com/staticmap/v4/getmap?#{map_params.to_param}"
+
+    link_to external_map_url, target: '_blank', title: 'Вижте по-голяма карта', class: 'map' do |variable|
+      image_tag static_map_image_url, alt: @school.full_address, width: width, height: height
+    end
+  end
 end
