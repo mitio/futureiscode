@@ -7,7 +7,7 @@
       <% @own_events.each do |event| %>
         <li>
           <%= link_to event do %>
-            <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
+            <%= event.full_name_with_date %>
             <% unless event.approved? %>
               <span class="label warning">чака потвърждение</span>
             <% end %>
@@ -25,9 +25,7 @@
       <ul>
         <% events.each do |event| %>
           <li>
-            <%= link_to event do %>
-              <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
-            <% end %>
+            <%= link_to event.full_name_with_date, event %>
           </li>
         <% end %>
       </ul>

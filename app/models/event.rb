@@ -34,4 +34,8 @@ class Event < ActiveRecord::Base
   def default_name
     I18n.t('default_event_name', date: l(date))
   end
+
+  def full_name_with_date
+    "#{I18n.l date}, #{school.town.full_name} – #{name_or_default}"
+  end
 end

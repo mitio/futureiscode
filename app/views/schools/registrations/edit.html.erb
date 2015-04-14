@@ -5,7 +5,7 @@
     <% current_school.pending_events.newest_first.each do |event| %>
       <li>
         <%= link_to event do %>
-          <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
+          <%= event.full_name_with_date %>
         <% end %>
       </li>
     <% end %>
