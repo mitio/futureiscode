@@ -9,6 +9,9 @@
       <li>
         <%= link_to participating_school_path(school) do %>
           <span class="name"><%= school.name %></span>
+          <% if school.events.size > 0 %>
+            <span class="label success"><%= pluralize school.events.size, 'събитие', 'събития' %></span>
+          <% end %>
           <span class="btn">виж детайли</span>
         <% end %>
       </li>
