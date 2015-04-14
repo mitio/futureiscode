@@ -3,7 +3,7 @@
     <div class="content-wrapper">
       <div class="content">
         <h1><%= @event.name_or_default %></h1>
-        <div class="school"><%= @event.school.name %></div>
+        <div class="school"><%= link_to @event.school.name, participating_school_path(@event.school) %></div>
         <div class="town"><%= @event.school.town.name_with_kind %></div>
         <% if @event.speaker.company_or_other.present? %>
           <div class="organizer">
@@ -35,6 +35,10 @@
         <span class="value"><%= mail_to @event.public_email %></span>
       </li>
     <% end %>
+    <li>
+      <label>Учебно заведение:</label>
+      <span class="value"><%= link_to @event.school.name, participating_school_path(@event.school) %></span>
+    </li>
     <li>
       <label>Адрес:</label>
       <span class="value"><%= @event.school.full_address %></span>
