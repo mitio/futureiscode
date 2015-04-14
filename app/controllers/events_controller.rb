@@ -4,6 +4,8 @@ class EventsController < ApplicationController
   before_filter :authenticate_speaker!, only: [:new, :create, :edit, :update]
 
   def index
+    current_member = current_speaker || current_school
+    @own_events = current_member.events.newest_first if current_member
     @events = Event.newest_first.approved
   end
 

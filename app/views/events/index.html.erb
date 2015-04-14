@@ -1,5 +1,23 @@
 <h1>Събития</h1>
 
+<% if @own_events && @own_events.any? %>
+  <div class="events">
+    <h2>Моите събития</h2>
+    <ul>
+      <% @own_events.each do |event| %>
+        <li>
+          <%= link_to event do %>
+            <%= l event.date %>, <%= event.school.town.full_name %> – <%= event.name_or_default %>
+            <% unless event.approved? %>
+              <span class="label warning">чака одобрение</span>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <% if @events.any? %>
   <div class="events">
     <% @events.group_by { |event| l event.date, format: '%B, %Y' }.each do |month, events| %>
