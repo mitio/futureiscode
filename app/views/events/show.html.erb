@@ -36,6 +36,12 @@
         <span class="value"><%= mail_to @event.public_email %></span>
       </li>
     <% end %>
+    <% if @event.url.present? %>
+      <li>
+        <label>Сайт:</label>
+        <span class="value"><%= link_to truncate(@event.url, length: 50), @event.url, target: '_blank', rel: 'nofollow' %></span>
+      </li>
+    <% end %>
     <li>
       <label>Учебно заведение:</label>
       <span class="value"><%= link_to @event.school.name, participating_school_path(@event.school) %></span>
@@ -44,14 +50,9 @@
       <label>Адрес:</label>
       <span class="value"><%= @event.school.full_address %></span>
     </li>
-
-    <% if @event.url.present? %>
-      <li>
-        <label>Сайт:</label>
-        <span class="value"><%= link_to truncate(@event.url, length: 50), @event.url, target: '_blank', rel: 'nofollow' %></span>
-      </li>
-    <% end %>
   </ul>
+
+  <%= link_to_map_with_preview_for @event.school %>
 
   <h2>Описание</h2>
 
