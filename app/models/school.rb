@@ -1,6 +1,8 @@
 class School < ActiveRecord::Base
   include DetailsHash
 
+  OUTDATED_IF_OLDER_THAN = 2.months
+
   belongs_to :town
   has_many :events
 
@@ -29,12 +31,22 @@ class School < ActiveRecord::Base
   scope :participating, -> { where(confirmed_participation: true) }
   scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
   scope :with_location_info, -> { includes(town: {municipality: :state}) }
+  scope :outdated, -> { where(arel_table[:updated_at].lt(OUTDATED_IF_OLDER_THAN.ago)) }
+  scope :up_to_date, -> { where(arel_table[:updated_at].gteq(OUTDATED_IF_OLDER_THAN.ago)) }
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
   def pending_events
     events.pending
+  end
+
+  def outdated?
+    updated_at < OUTDATED_IF_OLDER_THAN.ago
+  end
+
+  def up_to_date?
+    !outdated?
   end
 
   def person_name
