@@ -463,6 +463,27 @@ a.map {
   display: block;
 }
 
+.label {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+  padding: 0.1em 0.6em;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-transform: lowercase;
+  &.warning {
+    background-color: #FFF7AD;
+    color: #877700;
+  }
+  &.error {
+    background-color: #FFC6C5;
+    color: #7F1B00;
+  }
+  &.success {
+    background-color: #BFFFA4;
+    color: #0A5704;
+  }
+}
+
 @media screen and (max-width: 799px) {
   a.map {
     img {
