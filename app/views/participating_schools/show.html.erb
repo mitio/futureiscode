@@ -21,12 +21,18 @@
   </ul>
 <% else %>
   <p>
-    Все още няма събития в това учебно заведение.
+    Все още няма потвърдени събития в това учебно заведение.
     <% if speaker_signed_in? %>
       <%= link_to 'Създайте събитие →', new_event_path(event: {school_id: @school.id}), class: 'btn' %>
     <% else %>
       <%= link_to 'Влезте като лектор', new_speaker_session_path %>, за да създадете събитие.
     <% end %>
+  </p>
+<% end %>
+<% if @pending_events_count > 0 %>
+  <p>
+    В учебното заведение има
+    <span class="label warning"><%= pluralize @pending_events_count, 'непотвърдено събитие.', 'непотвърдени събития.' %></span>
   </p>
 <% end %>
 
