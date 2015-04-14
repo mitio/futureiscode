@@ -56,7 +56,7 @@ module ApplicationHelper
     static_map_image_url = "http://open.mapquestapi.com/staticmap/v4/getmap?#{map_params.to_param}"
 
     link_to external_map_url, target: '_blank', title: 'Вижте по-голяма карта', class: 'map' do |variable|
-      image_tag static_map_image_url, alt: @school.full_address, width: width, height: height
+      image_tag static_map_image_url, alt: school.full_address, width: width, height: height
     end
   end
 end
