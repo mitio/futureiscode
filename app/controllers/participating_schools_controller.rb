@@ -5,5 +5,16 @@ class ParticipatingSchoolsController < ApplicationController
 
   def show
     @school = School.participating.find(params[:id])
+    @school_events = events_scope_for(@school).newest_first
+  end
+
+  private
+
+  def events_scope_for(school)
+    if current_school == school
+      school.events
+    else
+      school.events.approved
+    end
   end
 end

@@ -5,6 +5,31 @@
 
 <p>Вижте <%= link_to 'списъка с всички учебни заведения', participating_schools_path %>.</p>
 
+<h2>Събития</h2>
+<% if @school_events.any? %>
+  <ul>
+    <% @school_events.each do |event| %>
+      <li>
+        <%= link_to event do %>
+          <%= event.full_name_with_date %>
+          <% if event_host_for?(event) && event.pending? %>
+            <span class="label warning">очаква потвърждение</span>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    Все още няма събития в това учебно заведение.
+    <% if speaker_signed_in? %>
+      <%= link_to 'Създайте събитие →', new_event_path(event: {school_id: @school.id}), class: 'btn' %>
+    <% else %>
+      <%= link_to 'Влезте като лектор', new_speaker_session_path %>, за да създадете събитие.
+    <% end %>
+  </p>
+<% end %>
+
 <h2>Информация за учебното заведение</h2>
 <ul class="details inline">
   <li>

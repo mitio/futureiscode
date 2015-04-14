@@ -30,7 +30,7 @@
         <%= link_to 'Потвърдете събитието', approve_event_path(@event), method: :post, class: 'btn' %>
       </p>
     <% end %>
-  <% elsif !@event.approved? %>
+  <% elsif @event.pending? %>
     <p class="separated">
       <span class="label warning">очаква потвърждение от учебното заведение</span>
     </p>

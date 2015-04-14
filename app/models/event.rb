@@ -38,4 +38,8 @@ class Event < ActiveRecord::Base
   def full_name_with_date
     "#{I18n.l date}, #{school.town.full_name} – #{name_or_default}"
   end
+
+  def pending?
+    !approved?
+  end
 end
