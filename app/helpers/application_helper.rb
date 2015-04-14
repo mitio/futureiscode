@@ -59,4 +59,8 @@ module ApplicationHelper
       image_tag static_map_image_url, alt: school.full_address, width: width, height: height
     end
   end
+
+  def event_host_for?(event)
+    school_signed_in? && current_school == event.school
+  end
 end

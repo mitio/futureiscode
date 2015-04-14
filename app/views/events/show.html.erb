@@ -17,7 +17,7 @@
 <% end %>
 
 <div class="event">
-  <% if school_signed_in? && current_school == @event.school %>
+  <% if event_host_for?(@event) %>
     <% if @event.approved? %>
       <p class="separated">
         Това събитие е <span class="label success">потвърдено</span> от вас.
@@ -50,6 +50,18 @@
         <label>Имейл за връзка:</label>
         <span class="value"><%= mail_to @event.public_email %></span>
       </li>
+    <% end %>
+    <% if event_host_for?(@event) %>
+      <li>
+        <label>Имейл на лектора:</label>
+        <span class="value"><%= mail_to @event.speaker.email %> <small>(видим само за вас като домакин)</small></span>
+      </li>
+      <% if @event.speaker.phone.present? %>
+        <li>
+          <label>Телефон:</label>
+          <span class="value"><%= @event.speaker.phone %> <small>(видим само за вас като домакин)</small></span>
+        </li>
+      <% end %>
     <% end %>
     <% if @event.url.present? %>
       <li>
