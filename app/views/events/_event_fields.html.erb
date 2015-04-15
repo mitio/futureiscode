@@ -1,4 +1,9 @@
-<%= form.association :school, collection: School.participating.in_alphabetical_order.with_location_info, label_method: :name_with_location %>
+<% if form.object.persisted? %>
+  <label>Учебно заведение</label>
+  <%= link_to form.object.school.name_with_location, participating_school_path(form.object.school) %>
+<% else %>
+  <%= form.association :school, collection: School.participating.in_alphabetical_order.with_location_info, label_method: :name_with_location %>
+<% end %>
 <%= form.input :date, prompt: true %>
 <%= form.input :name %>
 <%= form.input :url %>

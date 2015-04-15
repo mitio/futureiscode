@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
   validates :cover_image, attachment_size: {less_than: 2.megabytes},
                           attachment_content_type: {content_type: /\Aimage\/.*\Z/},
                           dimensions: {min_width: 800, min_height: 100}
+  validate  :school_does_not_change, if: :persisted?
 
   scope :newest_first, -> { order(arel_table[:date].desc) }
   scope :approved, -> { where(approved: true) }
@@ -41,5 +42,13 @@ class Event < ActiveRecord::Base
 
   def pending?
     !approved?
+  end
+
+  private
+
+  def school_does_not_change
+    if school_id_changed?
+      errors.add :school_id, :cannot_change
+    end
   end
 end

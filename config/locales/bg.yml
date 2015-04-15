@@ -29,6 +29,7 @@ bg:
     messages:
       too_narrow: 'е с твърде малка ширина; трябва да е поне %{min_width} пиксела'
       too_short: 'е с твърде малка височина; трябва да е поне %{min_height} пиксела'
+      cannot_change: 'не може да се променя'
 
   attributes:
     id: 'ID'
