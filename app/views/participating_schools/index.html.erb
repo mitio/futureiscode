@@ -5,12 +5,17 @@
 <% @schools.group_by(&:town).each do |town, schools| %>
   <h2><%= town.full_name %></h2>
   <ul class="schools">
-    <% schools.each do |school| %>
+    <% schools.sort_by { |school| [school.up_to_date? ? 0 : 1, school.name] }.each do |school| %>
       <li>
         <%= link_to participating_school_path(school) do %>
           <span class="name"><%= school.name %></span>
           <% if school.events.size > 0 %>
             <span class="label success"><%= pluralize school.events.size, 'събитие', 'събития' %></span>
+          <% end %>
+          <% if school.outdated? %>
+            <span class="label error" title="Профилът не е обновяван от <%= time_ago_in_words school.updated_at %>">
+              старо
+            </span>
           <% end %>
           <span class="btn">виж детайли</span>
         <% end %>
