@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :contacts, only: :index
   resources :participating_schools
+  resources :companies
   resources :events do
     member do
       post :approve
