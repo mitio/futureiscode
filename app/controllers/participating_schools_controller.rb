@@ -4,7 +4,7 @@ class ParticipatingSchoolsController < ApplicationController
   end
 
   def show
-    @school = School.participating.find(params[:id])
+    @school = School.find(params[:id])
     @school_events = events_scope_for(@school).newest_first
     @pending_events_count = @school.pending_events.count(:all)
   end

@@ -1,7 +1,13 @@
 <h1>
-  <%= @school.name %><br>
+  <%= @school.name %>
+  <%= content_tag :small, 'не участва', class: 'label error' unless @school.confirmed_participation? %>
+  <br>
   <small><%= @school.town.name_with_kind %></small>
 </h1>
+
+<% unless @school.confirmed_participation? %>
+  <p>Учебното заведение <span class="label error">не участва</span> в текущото издание на инициативата.</p>
+<% end %>
 
 <p>Вижте <%= link_to 'списъка с всички учебни заведения', participating_schools_path %>.</p>
 
