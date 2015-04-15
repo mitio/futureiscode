@@ -29,6 +29,7 @@ class School < ActiveRecord::Base
   validates :confirmed_participation, acceptance: {accept: true}, if: :new_record?
 
   scope :participating, -> { where(confirmed_participation: true) }
+  scope :not_participating, -> { where(confirmed_participation: false) }
   scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
   scope :with_location_info, -> { includes(town: {municipality: :state}) }
   scope :outdated, -> { where(arel_table[:updated_at].lt(OUTDATED_IF_OLDER_THAN.ago)) }

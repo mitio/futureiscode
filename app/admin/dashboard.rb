@@ -8,6 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         'Активни и участващи училища' => School.participating.up_to_date.count,
         'Всички участващи училища'    => School.participating.count,
         'Остарели участващи училища'  => School.participating.outdated.count,
+        'Отказали се училища'         => School.not_participating.count,
         'Всички училища'              => School.count,
         'Регистрирани лектори'        => Speaker.count,
         'Събития'                     => Event.count,
