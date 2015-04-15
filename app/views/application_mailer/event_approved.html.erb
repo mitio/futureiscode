@@ -1,0 +1,7 @@
+<div class="main">
+  <p>Здравейте, <%= @speaker.name %>,</p>
+  <p>Събитието ви <strong><%= @event.name_or_default %></strong> е одобрено от представители на <%= @school.name %>. То вече е видимо и в <%= link_to 'публичния списък със събития', events_url %>.</p>
+  <p><%= link_to 'Вижте събитието →', event_url(@event), class: 'btn' %></p>
+  <p>Ако имате въпроси за инициативата, можете да се <%= link_to 'свържете с екипа ни', contacts_url %>, или да отговорите на този имейл.</p>
+  <%= render 'signature' %>
+</div>

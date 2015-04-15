@@ -17,6 +17,12 @@ class EventsController < ApplicationController
   def create
     @event = current_speaker.events.create event_params
 
+    if @event.persisted?
+      ApplicationMailer.new_event(@event).deliver_later
+    end
+
+    flash[:notice] = 'Събитието ви е създадено успешно и очаква преглед и одобрение от лицето за контакт в учебното заведение.'
+
     respond_with @event
   end
 
@@ -39,6 +45,10 @@ class EventsController < ApplicationController
     event = current_school.events.find params[:id]
     event.update_attributes approved: true
 
+    if event.errors.none?
+      ApplicationMailer.event_approved(event).deliver_later
+    end
+
     flash[:notice] = 'Събитието е одобрено.'
 
     redirect_to event
@@ -47,6 +57,10 @@ class EventsController < ApplicationController
   def unapprove
     event = current_school.events.find params[:id]
     event.update_attributes approved: false
+
+    if event.errors.none?
+      ApplicationMailer.event_reverted_to_pending(event).deliver_later
+    end
 
     flash[:notice] = 'Събитието е върнато в състояние на очакващо потвърждение.'
 

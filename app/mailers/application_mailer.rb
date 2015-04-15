@@ -7,7 +7,32 @@ class ApplicationMailer < ActionMailer::Base
     @new_password = new_password
     @current_period = ENV['CURRENT_PERIOD']
 
-    mail to: "#{school.contact_name} <#{school.email}>",
+    mail to: school.email_with_name,
          subject: %Q(Вашето участие в "Бъдешето е код", #{@current_period})
+  end
+
+  def new_event(event)
+    @event   = event
+    @school  = event.school
+    @speaker = event.speaker
+
+    mail to: @school.email_with_name,
+         subject: "Ново събитие от #{@speaker.name} във вашето учебно заведение очаква одобрение"
+  end
+
+  def event_approved(event)
+    @event   = event
+    @school  = event.school
+    @speaker = event.speaker
+
+    mail to: @speaker.email_with_name, subject: "Одобрено събитие #{@event.name_or_default}"
+  end
+
+  def event_reverted_to_pending(event)
+    @event   = event
+    @school  = event.school
+    @speaker = event.speaker
+
+    mail to: @speaker.email_with_name, subject: "Събитието #{@event.name_or_default} е върнато за преглед"
   end
 end

@@ -14,6 +14,10 @@ class Speaker < ActiveRecord::Base
     name
   end
 
+  def email_with_name
+    "#{name} <#{email}>"
+  end
+
   def company_or_other
     company or other_company
   end

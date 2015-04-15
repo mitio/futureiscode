@@ -57,6 +57,10 @@ class School < ActiveRecord::Base
     "#{name}, #{town.full_name}"
   end
 
+  def email_with_name
+    "#{contact_name} <#{email}>"
+  end
+
   def full_address
     "#{town.full_name}, #{address}"
   end
