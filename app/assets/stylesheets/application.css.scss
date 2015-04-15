@@ -220,7 +220,8 @@ a:hover {
   color: #1d2a32;
 }
 
-article {
+article,
+.article {
   font-size: 1.6em;
   line-height: 1.5em;
 
@@ -278,6 +279,37 @@ article {
   .join-us {
     font-size: 2em;
     margin: 2em;
+  }
+}
+
+.white-section {
+  background-color: #fff;
+}
+
+.detailed-about {
+  font-size: 1.25em;
+  .organizers {
+    font-weight: 200;
+  }
+}
+
+.participating-schools {
+  $color: #BEB8C7;
+  display: block;
+  text-align: center;
+  line-height: 1.2em;
+  font-size: 1.6em;
+  margin: 1.7em 0px;
+  color: $color;
+  &:hover {
+    color: $color;
+  }
+  strong {
+    display: block;
+    font-size: 5em;
+    line-height: 1em;
+    font-weight: normal;
+    color: #2D2B2E;
   }
 }
 

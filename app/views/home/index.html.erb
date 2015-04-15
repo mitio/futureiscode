@@ -22,12 +22,29 @@
 
 <%= render 'companies_who_pledged_support' if @companies.any? %>
 
+<div class="content-wrapper detailed-about">
+  <div class="content article">
+    <p class="details">“Бъдещето е код” е турне на ентусиасти, работещи в IT-сферата, из училища в страната, което ще се проведе за пореден път в периода <%= ENV['CURRENT_PERIOD'] %></p>
+
+    <p>Основната цел е мотивация и разпалване интереса на учениците в сферата на програмирането, дизайна и технологиите.</p>
+
+    <p class="organizers">Организира се с идеална цел от <%= link_to 'Дигиталната национална коалиция', 'http://digitalalliance.bg' %> с помощта на екип от доброволци и със съдействието на <%= link_to 'Министерството на образованието', 'http://mon.bg' %>.</p>
+  </div>
+</div>
+
+<% if @participating_schools_count > 10 %>
+  <div class="content-wrapper white-section">
+    <div class="content article">
+      <%= link_to participating_schools_path, class: 'participating-schools' do %>
+        <strong><%= @participating_schools_count %></strong>
+        учебни заведения от цялата страна участват
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <div class="content-wrapper">
   <article class="home">
-    <p><strong>“Бъдещето е код” е турне на ентусиасти, работещи в IT-сферата, из училища в страната, което ще се проведе за пореден път в периода <%= ENV['CURRENT_PERIOD'] %> Основната цел е мотивация и разпалване интереса на учениците в сферата на програмирането, дизайна и технологиите.</strong></p>
-
-    <p>Организира се от <%= link_to 'Дигиталната национална коалиция (ДНК)', 'http://digitalalliance.bg' %> с помощта на екип от доброволци и със съдействието на <%= link_to 'Министерството на образованието (МОН)', 'http://mon.bg' %>.</p>
-
     <h2 id="intro">Увод</h2>
 
     <p>Лектори, работещи в IT-сферата, посещават в рамките на един ден някое училище в страната, избрано по взаимно съгласие между лектора и/или неговата фирма и образователната институция.</p>
