@@ -27,8 +27,8 @@ bg:
 
   errors:
     messages:
-      image_too_narrow: 'е с твърде малка ширина; трябва да е поне %{min_width} пиксела'
-      image_too_short: 'е с твърде малка височина; трябва да е поне %{min_height} пиксела'
+      image_too_narrow: 'е с твърде малка ширина (%{current_width}px); трябва да е поне %{min_width} пиксела'
+      image_too_short: 'е с твърде малка височина (%{current_height}px); трябва да е поне %{min_height} пиксела'
       cannot_change: 'не може да се променя'
 
   attributes:
