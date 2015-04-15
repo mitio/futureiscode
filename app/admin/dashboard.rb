@@ -5,10 +5,12 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc { I18n.t('active_admin.dashboard') } do
     div style: 'margin-bottom: 3em;' do
       stats = {
-        'Участващи училища'    => School.where(confirmed_participation: true).count,
-        'Всички училища'       => School.count,
-        'Регистрирани лектори' => Speaker.count,
-        'Събития'              => Event.count,
+        'Активни и участващи училища' => School.participating.up_to_date.count,
+        'Всички участващи училища'    => School.participating.count,
+        'Остарели участващи училища'  => School.participating.outdated.count,
+        'Всички училища'              => School.count,
+        'Регистрирани лектори'        => Speaker.count,
+        'Събития'                     => Event.count,
       }
 
       stats.each do |label, value|
