@@ -316,23 +316,25 @@ article,
   }
 }
 
-.participating-schools {
-  $color: #BEB8C7;
-  display: block;
+.participating-schools-wrapper {
   text-align: center;
-  line-height: 1.2em;
-  font-size: 1.6em;
-  margin: 1.7em 0px;
-  color: $color;
-  &:hover {
-    color: $color;
-  }
-  strong {
+  .participating-schools {
+    $color: #919CA6;
     display: block;
-    font-size: 5em;
-    line-height: 1em;
-    font-weight: normal;
-    color: #2D2B2E;
+    line-height: 1.2em;
+    font-size: 1.6em;
+    margin: 1.7em 0px;
+    color: $color;
+    &:hover {
+      color: $color;
+    }
+    strong {
+      display: block;
+      font-size: 5em;
+      line-height: 1em;
+      font-weight: normal;
+      color: #2D2B2E;
+    }
   }
 }
 

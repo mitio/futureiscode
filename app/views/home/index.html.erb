@@ -39,12 +39,13 @@
 </div>
 
 <% if @participating_schools_count > 10 %>
-  <div class="content-wrapper white-section">
+  <div class="content-wrapper white-section participating-schools-wrapper">
     <div class="content article">
       <%= link_to participating_schools_path, class: 'participating-schools' do %>
         <strong><%= @participating_schools_count %></strong>
         учебни заведения от цялата страна участват
       <% end %>
+      <%= link_to 'Включете се като учебно заведение →', new_school_registration_path, class: 'btn light' %>
     </div>
   </div>
 <% end %>
