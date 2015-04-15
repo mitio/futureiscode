@@ -65,6 +65,17 @@
 <h2>Инфомрмация за участие</h2>
 <ul class="details">
   <li>
+    <label>Актуална ли е информацията</label>
+    <span class="value">
+      <% if @school.up_to_date? %>
+        Да, <span class="label success">актуална е</span>
+      <% else %>
+        Не, <span class="label error">остаряла е</span>
+      <% end %>
+      — профилът е обновен за последен път преди <%= time_ago_in_words @school.updated_at %>.
+    </span>
+  </li>
+  <li>
     <label>Предмет/и</label>
     <ul>
       <% @school.disciplines.each do |option| %>
