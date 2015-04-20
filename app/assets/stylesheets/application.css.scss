@@ -361,6 +361,44 @@ article,
   }
 }
 
+.speakers {
+  background: #2A2A2A image-url('speaker-background-black.jpg') 50% 50% no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  text-align: center;
+  color: #D8D8D8;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+
+  h2 {
+    border-bottom: none;
+    font-size: 3em;
+    margin: 1.4em 0 0.6em 0;
+    padding: 0;
+    line-height: 1.1em;
+  }
+
+  p {
+    font-weight: 200;
+    font-size: 1.2em;
+    margin: 1em;
+    line-height: 1.6em;
+  }
+
+  .action {
+    margin: 4em 0 2em 0;
+  }
+
+  a.btn.light {
+    color: #fff;
+    text-shadow: none;
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}
+
 footer {
   background-color: #46535C;
   .social-links {
