@@ -85,7 +85,13 @@ header {
   font-weight: normal;
   font-family: helvetica, verdana, arial, sans-serif;
   color: #576b78;
-  overflow: hidden;
+  border-bottom: 1px solid #C8CDD0;
+
+  &:after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
 
   .home-link {
     display: block;
