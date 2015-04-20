@@ -29,11 +29,15 @@ class Event < ActiveRecord::Base
   deletable_attachment :cover_image
 
   def name_or_default
-    name or defaut_name
+    if name.present?
+      name
+    else
+      default_name
+    end
   end
 
   def default_name
-    I18n.t('default_event_name', date: l(date))
+    I18n.t('default_event_name', date: I18n.l(date))
   end
 
   def full_name_with_date
