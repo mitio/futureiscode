@@ -317,9 +317,9 @@ article,
 }
 
 .participating-schools-wrapper {
+  $color: #919CA6;
   text-align: center;
   .participating-schools {
-    $color: #919CA6;
     display: block;
     line-height: 1.2em;
     font-size: 1.6em;
@@ -334,6 +334,15 @@ article,
       line-height: 1em;
       font-weight: normal;
       color: #2D2B2E;
+    }
+  }
+  p {
+    color: $color;
+    a {
+      color: #5B8699;
+      &:hover {
+        color: #2833b7;
+      }
     }
   }
 }
