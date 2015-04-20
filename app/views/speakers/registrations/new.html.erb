@@ -1,4 +1,15 @@
-<h1>Регистрация на лектор</h1>
+<% content_for :top_section do %>
+  <div class="new-speaker speaker-background-section">
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>Регистрация на лектор</h1>
+        <p>Инвестирайте един ден от времето си, за да посетите българско училище и да разпалите интереса на учениците към програмирането и технологиите.</p>
+        <p>Вие избирате за какво да говорите, как да го оформите и в кое учебно заведение. Ние осигуряваме възможността официално да влезете в учебен час.</p>
+        <p class="actions"><%= scroll_to 'Към регистрационния формуляр', 'new_speaker', class: 'btn light' %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <%= render 'instructions' %>
 

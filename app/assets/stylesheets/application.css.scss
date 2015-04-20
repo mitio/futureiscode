@@ -286,6 +286,20 @@ article,
   background-color: #fff;
 }
 
+.participants-background-section {
+  background: #fff image-url('participants-background.jpg') 50% 50% no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.speaker-background-section {
+  background: #fff image-url('speaker-background.jpg') 50% 50% no-repeat;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .detailed-about {
   font-size: 1.25em;
   text-align: center;
@@ -476,6 +490,35 @@ ul.details {
 
 textarea#event_details {
   height: 18em;
+}
+
+.new-speaker {
+  color: #2D2D2D;
+
+  h1 {
+    margin: 0.2em 0 0.8em 0;
+    font-size: 4em;
+    text-shadow: 0 1px 0 #E0E0E0;
+    font-weight: 200;
+    line-height: 1.1em;
+  }
+
+  p {
+    font-size: 1.6em;
+    line-height: 1.6em;
+    &.actions {
+      margin-top: 2em;
+    }
+  }
+
+  .btn.light {
+    border: 1px solid rgba(30, 30, 30, 0.2);
+    color: #23384A;
+    &:hover {
+      color: #FFF;
+      border-color: transparent;
+    }
+  }
 }
 
 .event-header {
