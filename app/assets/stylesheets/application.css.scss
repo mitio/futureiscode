@@ -280,6 +280,20 @@ article,
       img {
         max-height: 60px;
         max-width: 100%;
+
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        filter: grayscale(100%);
+        opacity: 0.7;
+        -webkit-transition: all linear 0.3s;
+        -moz-transition: all linear 0.3s;
+        transition: all linear 0.3s;
+      }
+      :hover img {
+        opacity: 1;
+        -webkit-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        filter: grayscale(0%);
       }
     }
   }
