@@ -7,7 +7,7 @@
       padding-bottom: 1px;
     }
     #map {
-      height: 400px;
+      height: 200px;
     }
   </style>
 
@@ -41,6 +41,7 @@
 
       var resizeMap = function () {
         var height = $(window).height() - $('footer').outerHeight() - $('header').outerHeight() - $('.content-wrapper').outerHeight();
+        height = Math.max(height, 200);
         $map.height(height);
       };
 
