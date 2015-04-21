@@ -6,7 +6,7 @@ class FrequentlyAskedQuestionsController < ApplicationController
       payment:          'Ще бъда ли възмезден като лектор?',
       who:              'Кой го организира?',
       motivation:       'Мотивация',
-      history:          'История',
+      target_audience:  'Целева група',
       mechanism:        'Механизъм',
       logistics:        'Организация и логистика',
       content:          'Съдържание на презентациите',
@@ -15,6 +15,7 @@ class FrequentlyAskedQuestionsController < ApplicationController
       schedule:         'График и времетраене',
       join:             'Как да се включите',
       spread_the_word:  'Популяризация на събитието',
+      history:          'История',
       opensource:       'Отворен код',
       contacts:         'Контакти',
     }
