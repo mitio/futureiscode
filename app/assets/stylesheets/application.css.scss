@@ -436,6 +436,16 @@ article,
     line-height: 1.6em;
     text-align: center;
 
+    .counter {
+      color: #565759;
+      strong {
+        font-size: 6em;
+        font-weight: normal;
+        line-height: 1em;
+        display: block;
+      }
+    }
+
     h2 {
       border-bottom: none;
       font-size: 2em;
