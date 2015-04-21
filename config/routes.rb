@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :contacts, only: :index
-  resources :participating_schools
+  resources :participating_schools, path: 'participating-schools'
   resources :companies
   resources :events do
     member do
