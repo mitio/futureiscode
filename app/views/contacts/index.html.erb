@@ -2,9 +2,38 @@
   <h1>Контакти</h1>
 
   <p>За всякакви въпроси, свързани с инициативата и организацията на посещенията, можете да се свържете с организационния екип на:</p>
-  <ul>
-    <li>Имейл <%= mail_to ENV['CONTACT_EMAIL_ADDRESS'] %></li>
-    <li>Телефон <strong>+359 88 927 23 12</strong> – <%= link_to 'Димитър Димитров', 'http://ddimitrov.name' %>, Europe Code Week посланик за България</li>
-    <li>Телефон <strong>+359 88 813 02 25</strong> – Адриана Панайотова, Дигитална национална коалиция</li>
+  <ul class="light">
+    <li>Имейл: <%= mail_to ENV['CONTACT_EMAIL_ADDRESS'] %></li>
+    <li>Телефон: <strong>+359 88 927 23 12</strong> – <%= link_to 'Димитър Димитров', 'http://ddimitrov.name' %>, Europe Code Week посланик за България</li>
+    <li>Телефон: <strong>+359 88 813 02 25</strong> – Адриана Панайотова, Дигитална национална коалиция</li>
+  </ul>
+
+  <h2>Социални</h2>
+
+  <ul class="light">
+    <li>
+      <%= link_to ENV['FACEBOOK_PAGE_URL'] do %>
+        Бъдещето е код във Facebook –
+        <i class="fa fa-facebook"></i>
+        futureiscode
+      <% end %>
+    </li>
+    <li>
+      <%= link_to ENV['TWITTER_URL'] do %>
+        Бъдещето е код в Twitter –
+        <i class="fa fa-twitter"></i>
+        @futureiscode
+      <% end %>
+    </li>
+    <li>
+      <%= link_to ENV['FLICKR_GROUP_URL'] do %>
+        Група за споделяне на снимки във Flickr –
+        <i class="fa fa-flickr"></i>
+        futureiscode
+      <% end %>
+    </li>
+    <li>
+      <%= link_to 'Организационна група за лектори и учители', ENV['FACEBOOK_GROUP_URL'] %>
+    </li>
   </ul>
 </div>
