@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :participating_schools, path: 'participating-schools'
   resources :companies
   resources :events do
+    collection do
+      get :map
+    end
     member do
       post :approve
       post :unapprove

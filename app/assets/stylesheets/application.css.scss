@@ -10,10 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= depend_on_asset "layers.png"
+ *= depend_on_asset "layers-2x.png"
  *= require boilerplate
  *= require normalize
  *= require forms
  *= require alerts
+ *= require leaflet
  *= require_self
  */
 
@@ -131,6 +134,15 @@ header {
     float: right;
     font-size: 1.4em;
     margin-top: 1.7em;
+  }
+}
+
+h1 {
+  .btn {
+    font-size: 0.5em;
+    padding: 0.4em 1.1em;
+    line-height: 1.3em;
+    vertical-align: middle;
   }
 }
 

@@ -7,7 +7,11 @@ class EventsController < ApplicationController
   def index
     current_member = current_speaker || current_school
     @own_events = current_member.events.newest_first if current_member
-    @events = Event.newest_first.approved
+    @events = Event.approved.newest_first
+  end
+
+  def map
+    @events = Event.approved.newest_first
   end
 
   def new

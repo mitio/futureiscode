@@ -30,6 +30,7 @@ gem 'premailer-rails'
 gem 'nokogiri'
 gem 'skylight'
 gem 'geocoder'
+gem 'leaflet-rails'
 
 group :development do
   gem 'letter_opener'

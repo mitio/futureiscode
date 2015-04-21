@@ -1,0 +1,91 @@
+<% content_for :top_section do %>
+  <style type="text/css">
+    body {
+      background-color: #FFF;
+    }
+    .content-wrapper {
+      padding-bottom: 1px;
+    }
+    #map {
+      height: 400px;
+    }
+  </style>
+
+  <div class="content-wrapper">
+    <article>
+      <h1>
+        Събития
+        <%= link_to 'вижте списък', events_path, class: 'btn light' %>
+      </h1>
+    </article>
+  </div>
+
+  <div id="map">
+    <% if @events.none? %>
+      <div class="content-wrapper">
+        <div class="content article">
+          <p>Все още няма събития.</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <script type="text/javascript">
+    $(function () {
+      var events = <%= @events.to_json.html_safe %>;
+      var $map = $('#map');
+
+      if (events.length == 0) {
+        return;
+      }
+
+      var resizeMap = function () {
+        var height = $(window).height() - $('footer').outerHeight() - $('header').outerHeight() - $('.content-wrapper').outerHeight();
+        $map.height(height);
+      };
+
+      var initializeMap = function () {
+        $map.html('');
+
+        var map = L.map('map', {
+          scrollWheelZoom: false,
+          trackResize: true,
+          detectRetina: true
+        });
+
+        // Make sure all events are visible initially
+        var bounds = new L.latLngBounds($.map(events, function (event) {
+          return L.latLng(event.latitude, event.longitude);
+        }));
+
+        map.setView(bounds.getCenter(), 13);
+        map.fitBounds(bounds);
+
+        // Setup the map's layers
+        L.tileLayer(<%= Leaflet.tile_layer.to_json.html_safe %>, {
+            attribution: <%= Leaflet.attribution.to_json.html_safe %>,
+            maxZoom: <%= Leaflet.max_zoom %>
+        }).addTo(map);
+
+        // Add all events as markers
+        $.each(events, function () {
+          var event = this;
+
+          var eventLink = $('<a/>')
+            .text(event.name)
+            .attr('href', '/events/' + event.id);
+          var eventLinkHtml = $('<div/>').append(eventLink).html();
+
+          L.marker([event.latitude, event.longitude])
+            .addTo(map)
+            .bindPopup(eventLinkHtml);
+        });
+      };
+
+      $(window).on('resize', resizeMap);
+
+      resizeMap();
+      initializeMap();
+    });
+  </script>
+<% end %>

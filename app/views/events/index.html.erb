@@ -1,4 +1,7 @@
-<h1>Събития</h1>
+<h1>
+  Събития
+  <%= link_to 'вижте карта', map_events_path, class: 'btn light' %>
+</h1>
 
 <% if @own_events && @own_events.any? %>
   <div class="events">

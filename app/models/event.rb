@@ -56,6 +56,15 @@ class Event < ActiveRecord::Base
     !approved?
   end
 
+  def as_json(options = {})
+    {
+      id: id,
+      latitude: latitude,
+      longitude: longitude,
+      name: full_name_with_date,
+    }
+  end
+
   private
 
   def school_does_not_change
