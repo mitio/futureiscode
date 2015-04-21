@@ -3,13 +3,13 @@
     <div class="content">
       <ul>
         <li>
-          <%= link_to 'https://www.facebook.com/futureiscode' do %>
+          <%= link_to ENV['FACEBOOK_PAGE_URL'] do %>
             <i class="fa fa-facebook"></i>
             futureiscode
           <% end %>
         </li>
         <li>
-          <%= link_to 'https://twitter.com/futureiscode' do %>
+          <%= link_to ENV['TWITTER_URL'] do %>
             <i class="fa fa-twitter"></i>
             @futureiscode
           <% end %>
