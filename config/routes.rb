@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post :unapprove
     end
   end
+  resources :frequently_asked_questions, path: 'frequently-asked-questions'
 
   as :school do
     get 'schools/profile', to: 'devise/registrations#edit', as: :school_root
