@@ -23,7 +23,7 @@ bg:
         create: Създай събитието
         update: Обнови събитието
 
-  default_event_name: 'Събитие на %{date}'
+  default_event_name: 'Събитие на %{date} в %{school}'
 
   errors:
     messages:

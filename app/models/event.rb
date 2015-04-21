@@ -36,12 +36,20 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def name_or_school_name
+    if name.present?
+      name
+    else
+      school.name
+    end
+  end
+
   def default_name
-    I18n.t('default_event_name', date: I18n.l(date))
+    I18n.t('default_event_name', date: I18n.l(date), school: school.name)
   end
 
   def full_name_with_date
-    "#{I18n.l date}, #{school.town.full_name} – #{name_or_default}"
+    "#{I18n.l date}, #{school.town.full_name} – #{name_or_school_name}"
   end
 
   def pending?
