@@ -23,6 +23,8 @@
 $content-width: 800px;
 $footer-height: 31em;
 $content-side-padding: 4%;
+$link-color: #498AA8;;
+$link-hover-color: #2833b7;
 
 body, html {
   padding: 0;
@@ -207,12 +209,12 @@ header {
 }
 
 a {
-  color: #498AA8;
+  color: $link-color;
   text-decoration: none;
 }
 
 a:hover {
-  color: #2833b7;
+  color: $link-hover-color;
 }
 
 .content-wrapper {
@@ -371,7 +373,7 @@ article,
     a {
       color: #5B8699;
       &:hover {
-        color: #2833b7;
+        color: $link-hover-color;
       }
     }
   }
@@ -451,6 +453,24 @@ article,
 
     .action {
       margin: 3em 0 1em 0;
+    }
+  }
+}
+
+h2.faq {
+  small {
+    float: right;
+    font-size: 0.6em;
+    a {
+      color: #CACACA;
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+  &:hover {
+    a {
+      color: $link-color;
     }
   }
 }
