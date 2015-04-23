@@ -2,10 +2,11 @@
 
 <% if speaker_signed_in? %>
   <p>
-    <%= link_to 'Вижте списък с регистрираните учебни заведения →', participating_schools_path, class: 'btn' %>
+    <%= link_to 'Ново събитие', new_event_path, class: 'btn light' %> или
+    <%= link_to 'Вижте списък с регистрираните учебни заведения', participating_schools_path, class: 'btn light' %>
   </p>
 <% else %>
-  <p>Ако вече имате регистрация, <%= link_to 'влезте от тук', new_speaker_session_path %>.</p>
+  <p>Вече имате регистрация? <%= link_to 'Влезте от тук', new_speaker_session_path, class: 'btn light' %></p>
 <% end %>
 
 <p>Процедурата за участие е следната:</p>
