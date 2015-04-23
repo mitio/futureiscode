@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
     tiny:   '400x100>',
   }
 
-  delegate :latitude, :longitude, to: :school
+  delegate :latitude, :longitude, :geocoded?, to: :school
 
   validates :speaker_id, presence: true
   validates :school_id, presence: true

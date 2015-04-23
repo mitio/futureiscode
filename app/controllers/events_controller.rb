@@ -11,7 +11,11 @@ class EventsController < ApplicationController
   end
 
   def map
-    @events = Event.approved.newest_first
+    @events = Event
+      .approved
+      .newest_first
+      .includes(:school)
+      .select(&:geocoded?)
   end
 
   def new
