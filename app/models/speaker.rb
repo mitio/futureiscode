@@ -21,4 +21,12 @@ class Speaker < ActiveRecord::Base
   def company_or_other
     company or other_company
   end
+
+  def company_name
+    if company
+      company.name
+    elsif other_company.present?
+      other_company
+    end
+  end
 end

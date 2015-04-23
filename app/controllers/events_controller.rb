@@ -36,6 +36,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find params[:id]
+    @title = I18n.t('site.title', title: @event.name_or_default)
+    @page_image = @event.cover_image.url(:large) if @event.cover_image.present?
+    @page_description = @event.short_description
   end
 
   def edit

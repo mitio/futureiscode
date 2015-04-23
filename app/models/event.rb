@@ -49,7 +49,25 @@ class Event < ActiveRecord::Base
   end
 
   def full_name_with_date
-    "#{I18n.l date}, #{school.town.full_name} – #{name_or_school_name}"
+    "#{localized_date}, #{school.town.full_name} – #{name_or_school_name}"
+  end
+
+  def short_description
+    description =
+      if name.present?
+        %Q(#{name} – събитие от "Бъдещето е код", провеждащо се на #{localized_date} в #{school.name_with_location})
+      else
+        %Q(Събитие от "Бъдещето е код", провеждащо се на #{localized_date} в #{school.name_with_location})
+      end
+
+    description << ", организирано от #{speaker.company_name}" if speaker.company_name.present?
+    description << ", с лектор #{speaker.name}."
+
+    description
+  end
+
+  def localized_date
+    I18n.l date, format: '%d %B %Y г.'
   end
 
   def pending?
