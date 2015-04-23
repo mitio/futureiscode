@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   include DeletableAttachment
 
-  belongs_to :speaker
+  belongs_to :speaker, counter_cache: true
   belongs_to :school, counter_cache: true
 
   has_attached_file :cover_image, styles: {
