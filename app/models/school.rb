@@ -35,8 +35,8 @@ class School < ActiveRecord::Base
   scope :outdated, -> { where(arel_table[:updated_at].lt(OUTDATED_IF_OLDER_THAN.ago)) }
   scope :up_to_date, -> { where(arel_table[:updated_at].gteq(OUTDATED_IF_OLDER_THAN.ago)) }
 
-  geocoded_by :full_address
-  after_validation :geocode, if: proc { full_address.present? && full_address_changed? }
+  geocoded_by :address_for_geocoding
+  after_validation :geocode, if: proc { address_for_geocoding.present? && address_for_geocoding_changed? }
 
   def pending_events
     events.pending
@@ -66,7 +66,11 @@ class School < ActiveRecord::Base
     "#{town.full_name}, #{address}" if town
   end
 
-  def full_address_changed?
+  def address_for_geocoding
+    "#{address}, #{town.name_with_kind}, #{state.name}, България" if town
+  end
+
+  def address_for_geocoding_changed?
     town_id_changed? || address_changed?
   end
 end
