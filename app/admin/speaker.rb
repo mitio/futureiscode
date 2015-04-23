@@ -10,6 +10,11 @@ ActiveAdmin.register Speaker do
     column 'Фирма', :company_or_other, sortable: :company
     column 'Имейл', :phone
     column 'Потв.?', :confirmed?
+    column 'Събития', sortable: :events_count do |row|
+      if row.events_count > 0
+        link_to "#{row.events_count} (виж)", admin_events_path(q: {speaker_id_eq: row.id})
+      end
+    end
     column :created_at
     column :last_sign_in_at
     actions
