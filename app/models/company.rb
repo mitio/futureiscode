@@ -1,6 +1,8 @@
 class Company < ActiveRecord::Base
   include Sluggable
 
+  has_many :speakers
+
   validates :name, presence: true, uniqueness: true
 
   scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
@@ -12,4 +14,8 @@ class Company < ActiveRecord::Base
     small_crop: '100x100#',
   }
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
+
+  def update_events_count
+    update_attribute :events_count, speakers.sum(:events_count)
+  end
 end

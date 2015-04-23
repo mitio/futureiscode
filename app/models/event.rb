@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   }
 
   delegate :latitude, :longitude, :geocoded?, to: :school
+  delegate :update_company_events_count, to: :speaker
 
   validates :speaker_id, presence: true
   validates :school_id, presence: true
@@ -21,6 +22,8 @@ class Event < ActiveRecord::Base
                           attachment_content_type: {content_type: /\Aimage\/.*\Z/},
                           dimensions: {min_width: 800, min_height: 100}
   validate  :school_does_not_change, if: :persisted?
+
+  after_save :update_company_events_count
 
   scope :newest_first, -> { order(arel_table[:date].desc) }
   scope :approved, -> { where(approved: true) }

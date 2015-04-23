@@ -10,6 +10,8 @@ class Speaker < ActiveRecord::Base
 
   validates :name, presence: true
 
+  after_save :update_company_events_count
+
   def person_name
     name
   end
@@ -27,6 +29,14 @@ class Speaker < ActiveRecord::Base
       company.name
     elsif other_company.present?
       other_company
+    end
+  end
+
+  def update_company_events_count
+    company.update_events_count if company
+
+    if company_id_changed?
+      Company.find_by_id(company_id_was).try(:update_events_count)
     end
   end
 end
