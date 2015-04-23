@@ -11,6 +11,11 @@ bg:
     municipality: 'общ. %{name}'
     state: 'обл. %{name}'
 
+  site:
+    default_title: 'Бъдещето е код'
+    title: '%{title} - Бъдещето е код'
+    default_description: 'Бъдещето е код е турне на работещи в IT-сферата из училища в страната, организирано от доброволци със съдействието на МОН.'
+
   helpers:
     submit:
       school:

@@ -1,8 +1,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title><%= @title || 'Бъдещето е код' %></title>
-<meta name="description" content="Бъдещето е код е турне на работещи в IT-сферата из училища в страната, организирано от доброволци със съдействието на МОН.">
 <meta name="viewport" content="width=device-width">
+
+<title><%= @title || t('site.default_title') %></title>
+<meta name="description" content="<%= @page_description || t('site.default_description') %>">
+<meta property="og:title" content="<%= @title || t('site.default_title') %>">
+<meta property="og:description" content="<%= @page_description || t('site.default_description') %>" />
+<% if @page_image %>
+  <meta property="og:image" content="<%= @page_image %>">
+<% end %>
 
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
