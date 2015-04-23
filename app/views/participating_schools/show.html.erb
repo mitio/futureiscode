@@ -103,17 +103,15 @@
       <%= Options.translate(@school.meetup_options, type: 'meetup_options') %>
     </span>
   </li>
-  <% if speaker_signed_in? %>
+  <li>
+    <label>Дати за посещение</label>
+    <span class="value"><%= simple_format @school.visit_dates %></span>
+  </li>
+  <% if @school.remarks.present? %>
     <li>
-      <label>Дати за посещение</label>
-      <span class="value"><%= simple_format @school.visit_dates %></span>
+      <label>Забележки</label>
+      <span class="value"><%= simple_format @school.remarks %></span>
     </li>
-    <% if @school.remarks.present? %>
-      <li>
-        <label>Забележки</label>
-        <span class="value"><%= simple_format @school.remarks %></span>
-      </li>
-    <% end %>
   <% end %>
 </ul>
 
