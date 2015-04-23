@@ -3,6 +3,8 @@ class Company < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
+  scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
+
   has_attached_file :logo, styles: {
     large:      '600x600>',
     medium:     '300x300>',

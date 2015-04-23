@@ -6,6 +6,9 @@ ActiveAdmin.register Event do
   scope :approved
   scope :pending
 
+  preserve_default_filters!
+  filter :speaker_company_id_eq, label: 'Фирма', as: :select, collection: proc { Company.in_alphabetical_order }
+
   index do
     selectable_column
     id_column
