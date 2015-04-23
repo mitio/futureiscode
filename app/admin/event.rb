@@ -2,6 +2,10 @@ ActiveAdmin.register Event do
   permit_params :speaker_id, :school_id, :date, :cover_image, :name, :details,
                 :approved, :url, :public_email
 
+  scope :all
+  scope :approved
+  scope :pending
+
   index do
     selectable_column
     id_column

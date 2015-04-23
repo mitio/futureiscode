@@ -6,6 +6,13 @@ ActiveAdmin.register School do
 
   remove_filter :town
 
+  scope :all
+  scope :participating
+  scope :not_participating
+  scope :outdated
+  scope :up_to_date
+  scope :not_geocoded
+
   index do
     selectable_column
     id_column
