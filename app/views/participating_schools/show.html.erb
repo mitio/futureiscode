@@ -66,7 +66,7 @@
   </li>
 </ul>
 
-<%= link_to_map_with_preview_for @school %>
+<%= link_to_map_with_preview_for @school if @school.geocoded? %>
 
 <h2>Инфомрмация за участие</h2>
 <ul class="details">
