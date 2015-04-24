@@ -569,6 +569,7 @@ ul.schools {
     font-weight: 200;
     a {
       display: inline-block;
+      vertical-align: top;
       .btn {
         padding: 0.3em 0.6em;
         font-size: 0.8em;
@@ -607,6 +608,8 @@ ul.details {
     }
     .value {
       display: block;
+      word-wrap: break-word;
+      max-width: 100%;
     }
     ul {
       margin-left: 0;
@@ -674,10 +677,11 @@ textarea#event_details {
     h1 {
       margin: 0.2em 0 0.8em 0;
       font-size: 4em;
-      text-shadow: 0 1px 0 #E0E0E0;
       color: #2D2D2D;
       font-weight: 600;
       line-height: 1.1em;
+      word-wrap: break-word;
+      max-width: 100%;
     }
 
     p {
@@ -713,6 +717,23 @@ textarea#event_details {
           vertical-align: middle;
         }
       }
+    }
+  }
+
+  &.with-background {
+    .content-wrapper {
+      h1 {
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+}
+
+.event {
+  .details {
+    p {
+      word-wrap: break-word;
+      max-width: 100%;
     }
   }
 }
@@ -833,6 +854,53 @@ p.separated {
     .inspire {
       padding-top: 0;
       margin: 1em;
+    }
+  }
+  .motivation .article blockquote {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.3em;
+  }
+  .speakers {
+    h2 {
+      font-size: 2.5em;
+      margin-top: 0.6em;
+    }
+  }
+  .promo-box .article .action,
+  .speakers .action {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+  }
+  ul.schools li {
+    font-size: 1em;
+  }
+  .event-header {
+    .content-wrapper {
+      h1 {
+        font-size: 2.2em;
+        font-weight: 400;
+        line-height: 1.3em;
+      }
+      .school {
+        font-size: 1.8em;
+      }
+      .town {
+        font-size: 1.7em;
+      }
+    }
+  }
+  footer {
+    .social-links {
+      font-size: 1.3em;
+      ul {
+        line-height: 2.7em;
+      }
     }
   }
 }

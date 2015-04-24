@@ -1,5 +1,5 @@
 <% content_for :top_section do %>
-  <div class="event-header" style="background-image: url(<%= @event.cover_image.url(:large) if @event.cover_image? %>);">
+  <div class="event-header <%= 'with-background' if @event.cover_image? %>" style="background-image: url(<%= @event.cover_image.url(:large) if @event.cover_image? %>);">
     <div class="content-wrapper">
       <div class="content">
         <h1><%= @event.name_or_default %></h1>
