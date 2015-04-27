@@ -58,5 +58,23 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    panel 'Други фирми' do
+      ul do
+        companies = Speaker
+          .select('COUNT(other_company) AS count, other_company AS name')
+          .where("other_company != ''")
+          .group('other_company')
+          .having('COUNT(other_company) > 0')
+          .order('COUNT(other_company) DESC, other_company ASC')
+
+        companies.map do |company|
+          li do
+            span "#{company.name}: "
+            strong company.count
+          end
+        end
+      end
+    end
   end
 end
