@@ -16,6 +16,11 @@ ActiveAdmin.register Company do
         link_to "#{row.events_count} (виж)", admin_events_path(q: {speaker_company_id_eq: row.id})
       end
     end
+    column 'Лектори', sortable: :speakers_count do |row|
+      if row.speakers_count > 0
+        link_to "#{row.speakers_count} (виж)", admin_speakers_path(q: {company_id_eq: row.id})
+      end
+    end
     column :created_at
     column :updated_at
     actions

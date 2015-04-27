@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423121222) do
+ActiveRecord::Schema.define(version: 20150427153142) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150423121222) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.integer  "events_count",      default: 0,     null: false
+    t.integer  "speakers_count",    default: 0,     null: false
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
