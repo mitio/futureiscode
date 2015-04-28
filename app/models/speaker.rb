@@ -5,7 +5,7 @@ class Speaker < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  belongs_to :company, counter_cache: :true
+  belongs_to :company, counter_cache: true
   has_many :events
 
   validates :name, presence: true
