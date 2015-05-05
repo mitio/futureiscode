@@ -8,14 +8,16 @@ ActiveAdmin.register Event do
 
   preserve_default_filters!
   filter :speaker_company_id_eq, label: 'Фирма', as: :select, collection: proc { Company.in_alphabetical_order }
+  filter :school_town_municipality_id_eq, label: 'Община', as: :select, collection: proc { Municipality.in_alphabetical_order }
+  filter :school_town_municipality_state_id_eq, label: 'Област', as: :select, collection: proc { State.in_alphabetical_order }
 
   index do
     selectable_column
     id_column
     column :speaker
     column :school
-    column 'Town' do |row|
-      auto_link row.school.town, row.school.town.name
+    column 'Град' do |row|
+      auto_link row.school.town, row.school.town.name_with_kind if row.school.town
     end
     column 'Потв.?', :approved
     column 'Дата', :date

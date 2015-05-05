@@ -1,5 +1,6 @@
 class School < ActiveRecord::Base
   include DetailsHash
+  include AlphabeticalOrder
 
   OUTDATED_IF_OLDER_THAN = 2.months
 
@@ -30,7 +31,6 @@ class School < ActiveRecord::Base
 
   scope :participating, -> { where(confirmed_participation: true) }
   scope :not_participating, -> { where(confirmed_participation: false) }
-  scope :in_alphabetical_order, -> { order(arel_table[:name].asc) }
   scope :with_location_info, -> { includes(town: {municipality: :state}) }
   scope :outdated, -> { where(arel_table[:updated_at].lt(OUTDATED_IF_OLDER_THAN.ago)) }
   scope :up_to_date, -> { where(arel_table[:updated_at].gteq(OUTDATED_IF_OLDER_THAN.ago)) }

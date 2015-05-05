@@ -1,4 +1,6 @@
 class State < ActiveRecord::Base
+  include AlphabeticalOrder
+
   has_many :municipalities
   has_many :towns, through: :municipalities
 

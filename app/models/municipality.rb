@@ -1,4 +1,6 @@
 class Municipality < ActiveRecord::Base
+  include AlphabeticalOrder
+
   belongs_to :state
   has_many :towns
 

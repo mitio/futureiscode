@@ -8,7 +8,7 @@ ActiveAdmin.register Speaker do
     column 'Име', :name
     column 'Имейл', :email
     column 'Фирма', :company_or_other, sortable: :company
-    column 'Имейл', :phone
+    column 'Телефон', :phone
     column 'Потв.?', :confirmed?
     column 'Събития', sortable: :events_count do |row|
       if row.events_count > 0
