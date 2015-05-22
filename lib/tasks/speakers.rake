@@ -1,7 +1,7 @@
 namespace :app do
   namespace :speakers do
     desc 'Sends an email to all confirmed speakers with no events to create one.'
-    task  : :environment do
+    task send_reminder_to_create_events: :environment do
       stale_speakers = Speaker.confirmed.no_events
 
       puts "Sending notification to #{stale_speakers} stale speaker(s)..."
