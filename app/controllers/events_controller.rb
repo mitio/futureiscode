@@ -7,12 +7,11 @@ class EventsController < ApplicationController
   def index
     current_member = current_speaker || current_school
     @own_events = current_member.events.newest_first if current_member
-    @events = Event.approved.newest_first
+    @events = Event.newest_first
   end
 
   def map
     @events = Event
-      .approved
       .newest_first
       .includes(:school)
       .select(&:geocoded?)
