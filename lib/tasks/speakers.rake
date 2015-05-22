@@ -6,6 +6,7 @@ namespace :app do
 
       puts "Sending notification to #{stale_speakers} stale speaker(s)..."
       stale_speakers.each do |speaker|
+        puts "Emailing #{speaker.email_with_name}..."
         ApplicationMailer.create_an_event(speaker).deliver
       end
     end
