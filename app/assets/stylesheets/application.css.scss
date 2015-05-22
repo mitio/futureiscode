@@ -143,6 +143,9 @@ h1 {
     padding: 0.4em 1.1em;
     line-height: 1.3em;
     vertical-align: middle;
+    &:hover {
+      text-shadow: none;
+    }
   }
 }
 
