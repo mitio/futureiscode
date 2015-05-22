@@ -35,4 +35,13 @@ class ApplicationMailer < ActionMailer::Base
 
     mail to: @speaker.email_with_name, subject: "Събитието #{@event.name_or_default} е върнато за преглед"
   end
+
+  def create_an_event(speaker)
+    @speaker             = speaker
+    @schools_with_events = School.with_events
+    @potential_schools   = School.participating.up_to_date.no_events
+    @events              = Event.all
+
+    mail to: @speaker.email_with_name, subject: 'Все още имате време да посетите училище по линия на Бъдещето е код'
+  end
 end

@@ -18,4 +18,8 @@ class ApplicaitonMailerPreview < ActionMailer::Preview
   def event_reverted_to_pending
     ApplicationMailer.event_reverted_to_pending(Event.last)
   end
+
+  def create_an_event
+    ApplicationMailer.create_an_event(Speaker.confirmed.no_events.first)
+  end
 end
