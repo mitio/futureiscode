@@ -11,6 +11,9 @@ ActiveAdmin.register_page "Dashboard" do
             'Всички участващи училища'    => School.participating.count,
             'Остарели участващи училища'  => School.participating.outdated.count,
             'Отказали се училища'         => School.not_participating.count,
+            'Училища с поне едно събитие' => School.with_events.count,
+            'Непосетени училища'          => School.no_events.count,
+            'Непосетени, но участващи'    => School.participating.up_to_date.no_events.count,
             'Всички училища'              => School.count,
           }
 
@@ -24,7 +27,11 @@ ActiveAdmin.register_page "Dashboard" do
         panel 'Лектори и събития' do
           stats = {
             'Регистрирани лектори' => Speaker.count,
+            'Лектори със събития'  => Speaker.with_events.count,
+            'Лектори без събития'  => Speaker.confirmed.no_events.count,
             'Фирми'                => Company.count,
+            'Фирми със събития'    => Company.with_events.count,
+            'Фирми без събития'    => Company.no_events.count,
             'Одобрени събития'     => Event.approved.count,
             'Чакащи събития'       => Event.pending.count,
             'Всички събития'       => Event.count,
