@@ -10,6 +10,7 @@ class Speaker < ActiveRecord::Base
 
   validates :name, presence: true
 
+  scope :confirmed, -> { where(arel_table[:confirmed_at].not_eq(nil)) }
   scope :with_events, -> { where(arel_table[:events_count].gt(0)) }
   scope :no_events, -> { where(events_count: 0) }
 
