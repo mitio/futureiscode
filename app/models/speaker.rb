@@ -10,6 +10,9 @@ class Speaker < ActiveRecord::Base
 
   validates :name, presence: true
 
+  scope :with_events, -> { where(arel_table[:events_count].gt(0)) }
+  scope :no_events, -> { where(events_count: 0) }
+
   after_save :update_company_events_count
 
   def person_name

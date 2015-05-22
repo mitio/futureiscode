@@ -6,6 +6,9 @@ class Company < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
+  scope :with_events, -> { where(arel_table[:events_count].gt(0)) }
+  scope :no_events, -> { where(events_count: 0) }
+
   has_attached_file :logo, styles: {
     large:      '600x600>',
     medium:     '300x300>',

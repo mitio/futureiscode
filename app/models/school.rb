@@ -34,6 +34,8 @@ class School < ActiveRecord::Base
   scope :with_location_info, -> { includes(town: {municipality: :state}) }
   scope :outdated, -> { where(arel_table[:updated_at].lt(OUTDATED_IF_OLDER_THAN.ago)) }
   scope :up_to_date, -> { where(arel_table[:updated_at].gteq(OUTDATED_IF_OLDER_THAN.ago)) }
+  scope :with_events, -> { where(arel_table[:events_count].gt(0)) }
+  scope :no_events, -> { where(events_count: 0) }
 
   geocoded_by :address_for_geocoding
   after_validation :geocode, if: proc { address_for_geocoding.present? && address_for_geocoding_changed? }
