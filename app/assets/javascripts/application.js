@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require leaflet
 //= require_self
+//= require registration
 
 $(function () {
   $(document).on('click', '.smooth-scroll', function (e) {

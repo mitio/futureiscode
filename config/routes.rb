@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :frequently_asked_questions, path: 'frequently-asked-questions'
 
   as :school do
+    get 'schools/update_towns', to: 'registrations#update_towns', as: :update_towns
     get 'schools/profile', to: 'devise/registrations#edit', as: :school_root
   end
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     get 'speakers/profile', to: 'devise/registrations#edit', as: :speaker_root
   end
 
-  devise_for :schools
+  devise_for :schools, :controllers => {:registrations => "registrations"}
   devise_for :speakers
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
