@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
       if params[:municipality_id].present?
         @towns = Town.where('municipality_id = ?', params[:municipality_id]).order('name ASC').includes(municipality: :state)
       else
-        @towns = Town.where('1 != 1')
+        @towns = Town.none
       end
     end
 end
