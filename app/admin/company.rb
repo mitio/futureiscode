@@ -50,7 +50,7 @@ ActiveAdmin.register Company do
         row :name
         row :slug
         row :url do
-          link_to resource.url if resource.url.present?
+          link_to resource.url, resource.url if resource.url.present?
         end
         row :logo do
           if resource.logo?
