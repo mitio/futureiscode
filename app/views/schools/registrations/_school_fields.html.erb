@@ -1,3 +1,12 @@
 <%= form.input :name %>
-<%= form.association :town, collection: Town.order('name ASC').includes(municipality: :state), label_method: :full_name %>
+
+<%= form.input :town,
+    input_html: { id: 'municipality_id' },
+    collection: @municipalities,
+    required: true,
+    label_method: :name,
+    label: I18n.t('activerecord.models.municipality'),
+    :include_blank => true %>
+
+<%= form.association :town, collection: @towns, label_method: :full_name %>
 <%= form.input :address %>
