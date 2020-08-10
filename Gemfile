@@ -30,6 +30,7 @@ gem 'nokogiri'
 gem 'skylight'
 gem 'geocoder'
 gem 'leaflet-rails'
+gem 'recaptcha'
 
 group :development do
   gem 'letter_opener'

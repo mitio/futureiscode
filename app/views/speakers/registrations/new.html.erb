@@ -26,6 +26,8 @@
     <%= render 'contact_fields', form: f %>
   </div>
 
+  <%= render 'layouts/captcha', model: f.object %>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

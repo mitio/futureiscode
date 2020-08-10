@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     get 'speakers/profile', to: 'devise/registrations#edit', as: :speaker_root
   end
 
-  devise_for :schools
-  devise_for :speakers
+  devise_for :schools, controllers: {registrations: 'registrations'}
+  devise_for :speakers, controllers: {registrations: 'registrations'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 end

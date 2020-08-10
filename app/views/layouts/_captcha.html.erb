@@ -1,0 +1,7 @@
+<%- validation_error = model.errors[:captcha].to_sentence if model && model.respond_to?(:errors) -%>
+
+<%= recaptcha_tags hl: 'bg' %>
+
+<%- unless validation_error.blank? -%>
+<span class="error"><%= validation_error %></span>
+<%- end -%>
