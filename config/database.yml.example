@@ -2,8 +2,6 @@ defaults: &defaults
   adapter: postgresql
   host: localhost
   encoding: unicode
-  username: root
-  min_messages: warning
 
 development:
   <<: *defaults
