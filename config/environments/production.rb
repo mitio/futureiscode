@@ -95,6 +95,7 @@ Rails.application.configure do
     storage: :s3,
     s3_host_name: ENV['S3_HOSTNAME'],
     s3_host_alias: ENV['S3_HOST_ALIAS'],
+    s3_protocol: 'https',
     url: ':s3_alias_url',
     s3_credentials: {
       bucket: ENV['S3_BUCKET'],
