@@ -30,3 +30,4 @@ TODO.txt
 
 # Configuration variables for development and test
 .env
+/config/deploy/production.rb

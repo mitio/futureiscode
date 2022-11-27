@@ -27,6 +27,20 @@
 
 На [localhost:3000/admin](http://localhost:3000/admin) има административен интерфейс. Потребителското име е `admin@example.com`, а паролата `password`.
 
+## Deploy
+
+Копирайте и попълнете конфигурацията за деплой:
+
+```
+cp config/deploy/production.example.rb config/deploy/production.rb
+```
+
+След което:
+
+```
+bundle exec production deploy
+```
+
 ## Лиценз
 
 Кодът на това приложение се разпространява под [MIT лиценз](LICENSE.txt).
