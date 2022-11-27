@@ -121,11 +121,18 @@ ActiveAdmin.setup do |config|
   # You can completely disable comments:
   # config.comments = false
   #
-  # You can disable the menu item for the comments index page:
-  # config.show_comments_in_menu = false
-  #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
+  #
+  # You can change the order for the comments and you can change the column
+  # to be used for ordering:
+  # config.comments_order = 'created_at ASC'
+  #
+  # You can disable the menu item for the comments index page:
+  # config.comments_menu = false
+  #
+  # You can customize the comment menu:
+  # config.comments_menu = { parent: 'Admin', priority: 1 }
 
   # == Batch Actions
   #
@@ -138,11 +145,32 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
+
+  # == Localize Date/Time Format
+  #
+  # Set the localize format to display dates and times.
+  # To understand how to localize your app with I18n, read more at
+  # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
+  #
+  config.localize_format = :long
 
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
+
+  # == Meta Tags
+  #
+  # Add additional meta tags to the head element of active admin pages.
+  #
+  # Add tags to all pages logged in users see:
+  #   config.meta_tags = { author: 'My Company' }
+
+  # By default, sign up/sign in/recover password pages are excluded
+  # from showing up in search engine results by adding a robots meta
+  # tag. You can reset the hash of meta tags included in logged out
+  # pages:
+  #   config.meta_tags_for_logged_out_pages = {}
 
   # == Removing Breadcrumbs
   #
@@ -150,6 +178,13 @@ ActiveAdmin.setup do |config|
   # resources or you can disable them globally from here.
   #
   # config.breadcrumb = false
+
+  # == Create Another Checkbox
+  #
+  # Create another checkbox is disabled by default. You can customize it for individual
+  # resources or you can enable them globally from here.
+  #
+  # config.create_another = true
 
   # == Register Stylesheets & Javascripts
   #
@@ -222,6 +257,10 @@ ActiveAdmin.setup do |config|
   # You can control the default per page count for all resources here.
   #
   # config.default_per_page = 30
+  #
+  # You can control the max per page count too.
+  #
+  # config.max_per_page = 10_000
 
   # == Filters
   #
@@ -230,4 +269,25 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
+  #
+  # By default the filters include associations in a select, which means
+  # that every record will be loaded for each association.
+  # You can enabled or disable the inclusion
+  # of those filters by default here.
+  #
+  # config.include_default_association_filters = true
+
+  # == Footer
+  #
+  # By default, the footer shows the current Active Admin version. You can
+  # override the content of the footer here.
+  #
+  # config.footer = 'my custom footer text'
+
+  # == Sorting
+  #
+  # By default ActiveAdmin::OrderClause is used for sorting logic
+  # You can inherit it with own class and inject it for all resources
+  #
+  # config.order_clause = MyOrderClause
 end
