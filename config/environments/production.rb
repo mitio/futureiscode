@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -59,11 +59,12 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = "https://#{ENV['S3_HOST_ALIAS']}"
+  config.action_controller.default_url_options = {protocol: 'https'}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = {host: 'www.futureiscode.com'}
+  config.action_mailer.default_url_options = {host: 'www.futureiscode.com', protocol: 'https'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:        'smtp.sendgrid.net',
