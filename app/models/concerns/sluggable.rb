@@ -12,7 +12,7 @@ module Sluggable
   module ClassMethods
     def find(*args)
       id = args.first
-      return super if args.count != 1 || id.to_s =~ /\A\d+\z/
+      return super if args.count != 1 || Array(id).all? { |single_id| single_id.to_s =~ /\A\d+\z/ }
 
       find_by_slug(id) or raise ActiveRecord::RecordNotFound
     end
